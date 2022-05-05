@@ -1,0 +1,48 @@
+.info-btn {
+    background-color: white;
+    border: 2px solid #00a0d2;
+    border-radius: 4px;
+    color: #00a0d2;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.warning-btn {
+    background-color: white;
+    border: 2px solid #ffb900;
+    border-radius: 4px;
+    color: #ffb900;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.error-btn {
+    background-color: white;
+    border: 2px solid #dc3232;
+    border-radius: 4px;
+    color: #dc3232;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.woocommerce table.form-table table.widefat th.notification-cell{
+    white-space:pre-wrap; word-wrap:break-word
+}
+.no-data{
+    padding: 10px 0 10px 10px;
+}
+table.wc_input_table td.notification-col{
+    padding: 0 10px;
+}

@@ -1,0 +1,91 @@
+.biller-overview-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.biller-property-name {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.biller-track-and-trace-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: 1px solid #eee7e7;
+    padding: 0 5px 0 5px;
+}
+
+.biller-update-button {
+    margin-top: 16px;
+    width: max-content;
+    align-self: center;
+    font-weight: normal !important;
+    line-height: inherit !important;
+}
+
+.biller-track-and-trace-input {
+    width: 100%;
+}
+
+.biller-overlay {
+    position: relative;
+    width: inherit;
+    height: 180px;
+    background-color: #F0F0F1;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.biller-loader {
+    height: 1em;
+    width: 1em;
+    display: block;
+    position: relative;
+    top: 45%;
+    left: 45%;
+    content: '';
+    -webkit-animation: spin 1s ease-in-out infinite;
+    animation: spin 1s ease-in-out infinite;
+    background: url(../images/loader.svg) center center;
+    background-size: cover;
+    line-height: 1;
+    text-align: center;
+    font-size: 2em;
+    color: rgba(0, 0, 0, .75);
+}
+
+.biller-buttons-container {
+    margin-top: 10px;
+}
+
+.biller-link-input {
+    max-width: 75%;
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@media screen and (max-width: 782px) {
+    .biller-overlay {
+        height: 210px;
+    }
+}
+
+.biller-hide {
+    display: none;
+}

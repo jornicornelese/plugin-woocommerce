@@ -1,0 +1,21 @@
+{
+  "name": "biller/woocommerce",
+  "description": "Biller WooCommerce Integration",
+  "version": "1.0.0",
+  "type": "library",
+  "require": {
+    "symfony/console": "^5.2",
+    "ext-zip": "*",
+    "symfony/process": "^5.2",
+    "wp-cli/wp-cli-bundle": "*",
+    "php": ">=7.2",
+    "wp-coding-standards/wpcs": "2.3.*",
+    "ext-json": "*",
+    "ext-openssl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Biller\\Console\\Commands\\": "bin/console/commands"
+    }
+  }
+}
