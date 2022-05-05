@@ -175,10 +175,10 @@ class Biller {
 	 * Loads translations
 	 */
 	public function biller_init() {
-		if ( ! class_exists( 'WooCommerce ' ) ) {
+		if ( ! class_exists( 'WooCommerce' ) ) {
 			return;
 		}
-		load_plugin_textdomain( 'biller', false,
+		load_plugin_textdomain( 'biller-business-invoice', false,
 			basename( dirname( $this->biller_plugin_file ) ) . '/i18n/languages/' );
 	}
 
@@ -204,7 +204,7 @@ class Biller {
 	public function create_configuration_link( array $links ) {
 		$action_links = array(
 			'configuration' => '<a href="' . Shop_Helper::get_settings_url() . '" aria-label="' . esc_attr__( 'View Biller configuration',
-					'biller-business-invoice' ) . '">' . esc_html__( 'Settings', 'biller-business-invoice' ) . '</a>',
+					'biller' ) . '">' . esc_html__( 'Settings', 'biller' ) . '</a>',
 		);
 
 		return array_merge( $action_links, $links );

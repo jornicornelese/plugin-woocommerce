@@ -4,11 +4,15 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Biller\Console\Commands\BillerBuildCommand;
+use Biller\Console\Commands\BillerMakeMoCommand;
+use Biller\Console\Commands\BillerMakePotCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 
 // register commands
 $application->add( new BillerBuildCommand() );
+$application->add( new BillerMakePotCommand() );
+$application->add( new BillerMakeMoCommand() );
 
 $application->run();
