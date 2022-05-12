@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f338fd169ec4e027cea7474576678a9",
+    "content-hash": "e086a7e6697f29f4ad42be243ba6ea95",
     "packages": [
         {
             "name": "biller/integration-core",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:biller-ai/plugins-core.git",
-                "reference": "2a1801410bbe93e2a8f14e037a9d2b79461bc18f"
+                "reference": "2ffda4ac9e36649cd65088d96646fb3888855635"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biller-ai/plugins-core/zipball/2a1801410bbe93e2a8f14e037a9d2b79461bc18f",
-                "reference": "2a1801410bbe93e2a8f14e037a9d2b79461bc18f",
+                "url": "https://api.github.com/repos/biller-ai/plugins-core/zipball/2ffda4ac9e36649cd65088d96646fb3888855635",
+                "reference": "2ffda4ac9e36649cd65088d96646fb3888855635",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "proprietary"
             ],
             "description": "Biller integrations core library",
-            "time": "2022-05-05T08:59:12+00:00"
+            "time": "2022-05-12T09:00:13+00:00"
         }
     ],
     "packages-dev": [
