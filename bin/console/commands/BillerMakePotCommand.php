@@ -25,7 +25,7 @@ class BillerMakePotCommand extends Command {
 			'make-pot',
 			'./src/',
 			'./src/i18n/languages/biller-business-invoice.pot',
-			'--slug=biller'
+			'--slug=biller-business-invoice'
 		] );
 		$process->run();
 

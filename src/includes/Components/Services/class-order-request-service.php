@@ -80,7 +80,7 @@ class Order_Request_Service {
 			return $this->order_service->create( $order_request );
 		} catch ( HttpRequestException $e ) {
 			if ( (int) $e->getCode() === 500 ) {
-				throw new HttpRequestException( __( 'The unexpected error occurred, please select different payment method.', 'biller' ) );
+				throw new HttpRequestException( __( 'The unexpected error occurred, please select different payment method.', 'biller-business-invoice' ) );
 			}
 
 			throw $e;

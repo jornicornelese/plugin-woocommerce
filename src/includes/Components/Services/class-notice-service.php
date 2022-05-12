@@ -38,7 +38,7 @@ class Notice_Service {
 		foreach ( $notifications as $notification ) {
 			$is_dismissible = $notification->isDismissible() ? 'is-dismissible' : '';
 			echo '<div class="notice notice-' . $notification->getType() . ' . ' . $is_dismissible . '"><p>' .
-			     __( $notification->getMessage(), 'biller' ) . '</p></div>';
+			     __( $notification->getMessage(), 'biller-business-invoice' ) . '</p></div>';
 		}
 		delete_option( self::OPTION_FIELD_NAME );
 	}

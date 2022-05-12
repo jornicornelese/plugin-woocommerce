@@ -21,7 +21,7 @@ class Order_Status_Transition_Service implements OrderStatusTransitionService {
 			$order->update_status( $woocommerceStatus );
 
 			$order->add_order_note( sprintf(
-				__( "Biller changed the order (%s) status to $woocommerceStatus.", 'biller' ),
+				__( "Biller changed the order (%s) status to $woocommerceStatus.", 'biller-business-invoice' ),
 				$order->get_id()
 			) );
 		}

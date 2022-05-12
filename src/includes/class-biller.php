@@ -149,7 +149,7 @@ class Biller {
 			$controller = new Biller_Order_Details_Controller(); // controller responsible for rendering the Biller payment box.
 			add_meta_box(
 				'biller-payment-modal',
-				__( 'Biller business invoice', 'biller' ),
+				__( 'Biller business invoice', 'biller-business-invoice' ),
 				array( $controller, 'render' ),
 				'shop_order', // specifies on which page should the box be rendered
 				'side',
@@ -204,7 +204,7 @@ class Biller {
 	public function create_configuration_link( array $links ) {
 		$action_links = array(
 			'configuration' => '<a href="' . Shop_Helper::get_settings_url() . '" aria-label="' . esc_attr__( 'View Biller configuration',
-					'biller' ) . '">' . esc_html__( 'Settings', 'biller' ) . '</a>',
+					'biller-business-invoice' ) . '">' . esc_html__( 'Settings', 'biller-business-invoice' ) . '</a>',
 		);
 
 		return array_merge( $action_links, $links );
@@ -243,7 +243,7 @@ class Biller {
 		if ( ! Shop_Helper::is_woocommerce_active() ) {
 			deactivate_plugins( plugin_basename( __FILE__ ) );
 			wp_die(
-				esc_html( __( 'Please install and activate WooCommerce.', 'packlink-pro-shipping' ) ),
+				esc_html( __( 'Please install and activate WooCommerce.', 'biller-business-invoice' ) ),
 				'Plugin dependency check',
 				array( 'back_link' => true )
 			);

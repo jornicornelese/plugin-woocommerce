@@ -29,7 +29,7 @@ class Refund_Amount_Service implements RefundAmountRequestService {
 	public function reject( RefundAmountRequest $request, Exception $reason ) {
 		$this->refund_error = new \WP_Error(
 			'biller_refund_rejected',
-			sprintf( __( 'Order refund rejected with error: %s', 'biller' ), $reason->getMessage() )
+			sprintf( __( 'Order refund rejected with error: %s', 'biller-business-invoice' ), $reason->getMessage() )
 		);
 
 		return new RefundAmountRejectResponse( true );
@@ -50,7 +50,7 @@ class Refund_Amount_Service implements RefundAmountRequestService {
 		if ( ! $order ) {
 			return new WP_Error(
 				'biller_refund_invalid',
-				sprintf( __( 'Order refund could not be processed, unknown order id: %s', 'biller' ), $order_id )
+				sprintf( __( 'Order refund could not be processed, unknown order id: %s', 'biller-business-invoice' ), $order_id )
 			);
 		}
 

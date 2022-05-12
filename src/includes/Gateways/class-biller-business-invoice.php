@@ -65,9 +65,9 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 	public function __construct() {
 		$this->id                 = Biller::BILLER_BUSINESS_INVOICE_ID;
 		$this->has_fields         = true;
-		$this->method_title       = __( 'Biller business invoice', 'biller' );
+		$this->method_title       = __( 'Biller business invoice', 'biller-business-invoice' );
 		$this->method_description = __( 'The payment solution that advances both sides. We pay out every invoice on time. And buyers get to choose. Buy Now, Pay Later.',
-			'biller' );
+			'biller-business-invoice' );
 		$this->icon               = Biller::get_plugin_url( self::BILLER_ICON_PATH );
 
 		$this->auth_service          = ServiceRegister::getService( \Biller\BusinessLogic\Authorization\Contracts\AuthorizationService::class );
@@ -351,21 +351,21 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 	 * @return bool
 	 */
 	public function validate_fields() {
-		$errorMessage = __( 'Invalid field: ', 'biller' );
+		$errorMessage = __( 'Invalid field: ', 'biller-business-invoice' );
 		if ( empty( $_POST['biller_company_name'] ) ) {
-			wc_add_notice( $errorMessage . __( 'Company name cannot be empty.', 'biller' ), 'error' );
+			wc_add_notice( $errorMessage . __( 'Company name cannot be empty.', 'biller-business-invoice' ), 'error' );
 
 			return false;
 		}
 
 		if ( ! empty( $_POST['biller_registration_number'] ) && ! is_numeric( $_POST['biller_registration_number'] ) ) {
-			wc_add_notice( $errorMessage . __( 'Registration number should be a numeric value.', 'biller' ), 'error' );
+			wc_add_notice( $errorMessage . __( 'Registration number should be a numeric value.', 'biller-business-invoice' ), 'error' );
 
 			return false;
 		}
 
 		if ( ! empty( $_POST['biller_vat_number'] ) && ! is_numeric( $_POST['biller_vat_number'] ) ) {
-			wc_add_notice( $errorMessage . __( 'Vat number should be a numeric value.', 'biller' ), 'error' );
+			wc_add_notice( $errorMessage . __( 'Vat number should be a numeric value.', 'biller-business-invoice' ), 'error' );
 
 			return false;
 		}
@@ -381,18 +381,18 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 		$this->form_fields = array_merge( $this->get_base_form_fields(),
 			array(
 				'title'         => array(
-					'title'       => __( 'Name', 'biller' ),
+					'title'       => __( 'Name', 'biller-business-invoice' ),
 					'type'        => 'text',
-					'description' => __( 'This controls the title which the user sees during checkout.', 'biller' ),
-					'default'     => __( self::BILLER_DEFAULT_TITLE, 'biller' ),
+					'description' => __( 'This controls the title which the user sees during checkout.', 'biller-business-invoice' ),
+					'default'     => __( self::BILLER_DEFAULT_TITLE, 'biller-business-invoice' ),
 					'desc_tip'    => true,
 				),
 				'description'   => array(
-					'title'       => __( 'Description', 'biller' ),
+					'title'       => __( 'Description', 'biller-business-invoice' ),
 					'type'        => 'textarea',
 					'description' => __( 'Payment method description that the customer will see on your checkout.',
-						'biller' ),
-					'default'     => __( self::BILLER_DEFAULT_DESCRIPTION, 'biller' ),
+						'biller-business-invoice' ),
+					'default'     => __( self::BILLER_DEFAULT_DESCRIPTION, 'biller-business-invoice' ),
 					'desc_tip'    => true
 				),
 				'notifications' => array(
@@ -429,64 +429,64 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 	private function get_base_form_fields() {
 		return array(
 			'enabled'            => array(
-				'title'       => __( 'Enable/Disable', 'biller' ),
-				'label'       => __( 'Enable Biller business invoice', 'biller' ),
+				'title'       => __( 'Enable/Disable', 'biller-business-invoice' ),
+				'label'       => __( 'Enable Biller business invoice', 'biller-business-invoice' ),
 				'type'        => 'checkbox',
 				'default'     => 'no',
-				'description' => __( 'Enable/Disable Biller payment method.', 'biller' ),
+				'description' => __( 'Enable/Disable Biller payment method.', 'biller-business-invoice' ),
 				'desc_tip'    => true,
 			),
 			'mode'               => array(
-				'title'       => __( 'Mode', 'biller' ),
+				'title'       => __( 'Mode', 'biller-business-invoice' ),
 				'type'        => 'select',
 				'options'     => array(
-					'sandbox' => __( 'Sandbox', 'biller' ),
-					'live'    => __( 'Live', 'biller' ),
+					'sandbox' => __( 'Sandbox', 'biller-business-invoice' ),
+					'live'    => __( 'Live', 'biller-business-invoice' ),
 				),
 				'description' => __( 'Options field that allows merchants to choose either live or sandbox mode.',
-					'biller' ),
+					'biller-business-invoice' ),
 				'desc_tip'    => true,
 				'default'     => 'live',
 			),
 			'live-webShopUID'    => array(
-				'title'       => __( 'Webshop UUID', 'biller' ),
+				'title'       => __( 'Webshop UUID', 'biller-business-invoice' ),
 				'type'        => 'text',
-				'description' => __( 'Unique identifier of the Webshop.', 'biller' ),
+				'description' => __( 'Unique identifier of the Webshop.', 'biller-business-invoice' ),
 				'desc_tip'    => true,
 				'default'     => '',
 			),
 			'live-username'      => array(
-				'title'       => __( 'Username', 'biller' ),
+				'title'       => __( 'Username', 'biller-business-invoice' ),
 				'type'        => 'text',
-				'description' => __( ' Biller seller username.', 'biller' ),
+				'description' => __( ' Biller seller username.', 'biller-business-invoice' ),
 				'desc_tip'    => true,
 				'default'     => '',
 			),
 			'live-password'      => array(
-				'title'       => __( 'Password', 'biller' ),
+				'title'       => __( 'Password', 'biller-business-invoice' ),
 				'type'        => 'password',
-				'description' => __( 'Biller seller password.', 'biller' ),
+				'description' => __( 'Biller seller password.', 'biller-business-invoice' ),
 				'desc_tip'    => true,
 				'default'     => '',
 			),
 			'sandbox-webShopUID' => array(
-				'title'       => __( 'Webshop UUID', 'biller' ),
+				'title'       => __( 'Webshop UUID', 'biller-business-invoice' ),
 				'type'        => 'text',
-				'description' => __( 'Unique identifier of the Webshop.', 'biller' ),
+				'description' => __( 'Unique identifier of the Webshop.', 'biller-business-invoice' ),
 				'desc_tip'    => true,
 				'default'     => '',
 			),
 			'sandbox-username'   => array(
-				'title'       => __( 'Username', 'biller' ),
+				'title'       => __( 'Username', 'biller-business-invoice' ),
 				'type'        => 'text',
-				'description' => __( ' Biller seller username.', 'biller' ),
+				'description' => __( ' Biller seller username.', 'biller-business-invoice' ),
 				'desc_tip'    => true,
 				'default'     => '',
 			),
 			'sandbox-password'   => array(
-				'title'       => __( 'Password', 'biller' ),
+				'title'       => __( 'Password', 'biller-business-invoice' ),
 				'type'        => 'password',
-				'description' => __( 'Biller seller password.', 'biller' ),
+				'description' => __( 'Biller seller password.', 'biller-business-invoice' ),
 				'desc_tip'    => true,
 				'default'     => '',
 			)

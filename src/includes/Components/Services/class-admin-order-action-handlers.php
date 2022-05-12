@@ -168,7 +168,7 @@ class Admin_Order_Action_Handlers {
 				(string) $order->get_id()
 			);
 
-			$message = sprintf( __( 'Order %s changes are not synchronized to the Biller.', 'biller' ), $order->get_id() );
+			$message = sprintf( __( 'Order %s changes are not synchronized to the Biller.', 'biller-business-invoice' ), $order->get_id() );
 			$this->notice_service->push( new Notice( Notice_Service::INFO_TYPE, $message ) );
 			$order->add_order_note( $message );
 		}
@@ -310,7 +310,7 @@ class Admin_Order_Action_Handlers {
 		NotificationHub::pushError( $title, $description, (string) $order->get_id() );
 		$this->order_reference_repository->deleteBuExternalUUID( (string) $order->get_id() );
 
-		$message = sprintf( __( 'Order %s changes will not be automatically synchronized to the Biller anymore due to unsupported action.', 'biller' ), $order->get_id() );
+		$message = sprintf( __( 'Order %s changes will not be automatically synchronized to the Biller anymore due to unsupported action.', 'biller-business-invoice' ), $order->get_id() );
 		$this->notice_service->push( new Notice( Notice_Service::ERROR_TYPE, $message ) );
 		$order->add_order_note( $message );
 	}

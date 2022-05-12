@@ -286,7 +286,7 @@ class Base_Repository implements RepositoryInterface {
 	 */
 	protected function validate_index_column( $column, array $index_map ) {
 		if ( 'id' !== $column && ! array_key_exists( $column, $index_map ) ) {
-			throw new QueryFilterInvalidParamException( __( 'Column is not id or index.', 'biller' ) );
+			throw new QueryFilterInvalidParamException( __( 'Column is not id or index.', 'biller-business-invoice' ) );
 		}
 	}
 
