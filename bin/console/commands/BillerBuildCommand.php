@@ -12,7 +12,7 @@ use Symfony\Component\Process\Process;
 /**
  * Class BillerBuildCommand
  *
- * @package ChannelEngine\Console\Commands
+ * @package Biller\Console\Commands
  */
 class BillerBuildCommand extends Command {
     // the name of the command (the part after "bin/console")
