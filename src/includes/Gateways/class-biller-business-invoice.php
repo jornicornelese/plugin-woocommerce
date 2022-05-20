@@ -364,12 +364,6 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 			return false;
 		}
 
-		if ( ! empty( $_POST['biller_vat_number'] ) && ! is_numeric( $_POST['biller_vat_number'] ) ) {
-			wc_add_notice( $errorMessage . __( 'Vat number should be a numeric value.', 'biller-business-invoice' ), 'error' );
-
-			return false;
-		}
-
 		return true;
 	}
 
