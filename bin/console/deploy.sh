@@ -19,6 +19,7 @@ cd deploy
 echo "Removing unnecessary files from final release archive..."
 rm -rf biller-business-invoice/tests
 rm -rf biller-business-invoice/vendor/biller/integration-core/tests
+rm -rf biller-business-invoice/vendor/biller/integration-core/.git
 
 # Create plugin archive
 echo "Creating new archive..."

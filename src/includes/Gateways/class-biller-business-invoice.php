@@ -10,9 +10,13 @@ use Biller\BusinessLogic\Integration\Refund\RefundAmountRequestService;
 use Biller\Components\Services\Notice_Service;
 use Biller\Components\Services\Order_Request_Service;
 use Biller\Components\Services\Refund_Amount_Service;
+use Biller\Domain\Amount\Currency;
 use Biller\Domain\Exceptions\CurrencyMismatchException;
 use Biller\Domain\Exceptions\InvalidArgumentException;
+use Biller\Domain\Exceptions\InvalidCountryCode;
+use Biller\Domain\Exceptions\InvalidCurrencyCode;
 use Biller\Domain\Exceptions\InvalidTaxPercentage;
+use Biller\Domain\Order\OrderRequest\Country;
 use Biller\DTO\Notice;
 use Biller\Infrastructure\Http\Exceptions\HttpCommunicationException;
 use Biller\Infrastructure\Http\Exceptions\HttpRequestException;
@@ -29,8 +33,6 @@ use WP_Error;
 
 class Biller_Business_Invoice extends WC_Payment_Gateway {
 	const BILLER_ICON_PATH = '/resources/images/biller_logo.svg';
-	const BILLER_AVAILABLE_CURRENCY = 'EUR';
-	const BILLER_AVAILABLE_COUNTRIES = [ 'Netherlands' => 'NL', 'Belgium' => 'BE' ];
 	const BILLER_DEFAULT_TITLE = 'Biller business invoice';
 	const BILLER_DEFAULT_DESCRIPTION = 'The payment solution that advances both sides. We pay out every invoice on time. And buyers get to choose. Buy Now, Pay Later.';
 
@@ -91,10 +93,10 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 			$this,
 			'process_admin_options'
 		) );
-		add_action( 'wp_enqueue_scripts',  function () {
+		add_action( 'wp_enqueue_scripts', function () {
 			Script_Loader::load_js( [ '/js/checkout/biller.checkout.js' ] );
 		} );
-		add_action( 'admin_enqueue_scripts',  function () {
+		add_action( 'admin_enqueue_scripts', function () {
 			Script_Loader::load_js( [ '/js/admin/biller.mode-switch.js' ] );
 			Script_Loader::load_css( [ '/css/mode-switch.css' ] );
 
@@ -322,8 +324,12 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 		if ( $is_available && WC()->cart ) {
 			$country  = WC()->cart->get_customer()->get_shipping_country();
 			$currency = get_option( 'woocommerce_currency' );
-			if ( ! in_array( $country, self::BILLER_AVAILABLE_COUNTRIES, true ) ||
-			     $currency !== self::BILLER_AVAILABLE_CURRENCY ) {
+			try {
+				Country::fromIsoCode( $country );
+				Currency::fromIsoCode( $currency );
+			} catch ( InvalidCountryCode  $e ) {
+				$is_available = false;
+			} catch ( InvalidCurrencyCode  $e ) {
 				$is_available = false;
 			}
 		}
