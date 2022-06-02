@@ -3,42 +3,49 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Biller Business Invoice 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/biller-business-invoice\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/biller-business-"
+"invoice\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-06-02T10:20:13+02:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"POT-Creation-Date: 2022-06-02T10:03:14+02:00\n"
+"PO-Revision-Date: 2022-06-02 10:39+0200\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Domain: biller-business-invoice\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
 
 #. Plugin Name of the plugin
 msgid "Biller Business Invoice"
-msgstr ""
+msgstr "Achteraf betalen voor zakelijke klanten"
 
 #. Description of the plugin
-#: includes/Gateways/class-biller-business-invoice.php:71
-msgid "Biller is designed to optimally serve both the business seller and buyer. With Biller businesses buy now and pay later."
+msgid ""
+"Biller is designed to optimally serve both the business seller and buyer. "
+"With Biller businesses buy now and pay later."
 msgstr ""
+"Biller is ontworpen om zowel de zakelijke verkoper als koper optimaal te "
+"bedienen. Met Biller kunnen bedrijven eerst hun aankoop doen en betalen ze "
+"achteraf."
 
 #. Author of the plugin
 msgid "Biller"
-msgstr ""
+msgstr "Biller"
 
 #: includes/class-biller.php:152
 #: includes/Gateways/class-biller-business-invoice.php:70
 msgid "Biller business invoice"
-msgstr ""
+msgstr "Achteraf betalen voor zakelijke klanten"
 
 #: includes/class-biller.php:206
 msgid "View Biller configuration"
-msgstr ""
+msgstr "Toon Biller configuratie"
 
 #: includes/class-biller.php:207
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
 #: includes/class-biller.php:246
 msgid "Please install and activate WooCommerce."
@@ -46,273 +53,316 @@ msgstr ""
 
 #: includes/Components/Services/class-admin-order-action-handlers.php:171
 msgid "Order %s changes are not synchronized to the Biller."
-msgstr ""
+msgstr "Orderwijzigingen kunnen niet gesynchroniseerd worden naar Biller."
 
 #: includes/Components/Services/class-admin-order-action-handlers.php:313
-msgid "Order %s changes will not be automatically synchronized to the Biller anymore due to unsupported action."
+msgid ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore due to unsupported action."
 msgstr ""
+"Wijzigingen aan de order worden niet automatisch bijgewerkt bij Biller omdat "
+"deze actie niet wordt ondersteund.  "
 
 #: includes/Components/Services/class-order-request-service.php:83
 msgid "The unexpected error occurred, please select different payment method."
 msgstr ""
+"Er is een fout opgetreden, selecteer een andere betaalmethode alsjeblieft."
 
 #: includes/Components/Services/class-refund-amount-service.php:32
 msgid "Order refund rejected with error: %s"
-msgstr ""
+msgstr "Terugbetaling afgewezen door error:"
 
 #: includes/Components/Services/class-refund-amount-service.php:53
 msgid "Order refund could not be processed, unknown order id: %s"
-msgstr ""
+msgstr "Terugbetaling kan niet worden verwerkt door een onbekend order ID"
 
 #: includes/Controllers/class-biller-payment-redirection-controller.php:57
 msgid "Accepted by Biller"
-msgstr ""
+msgstr "Factuur betaling van Biller in afwachting "
 
 #: includes/Gateways/class-biller-business-invoice.php:360
 msgid "Invalid field: "
-msgstr ""
+msgstr "Incorrect veld"
 
 #: includes/Gateways/class-biller-business-invoice.php:362
 msgid "Company name cannot be empty."
-msgstr ""
+msgstr "Bedrijfnaam mag niet leeg zijn"
 
 #: includes/Gateways/class-biller-business-invoice.php:368
 msgid "Registration number should be a numeric value."
-msgstr ""
+msgstr "KvK nummer kan enkel getallen bevatten"
 
 #: includes/Gateways/class-biller-business-invoice.php:384
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #: includes/Gateways/class-biller-business-invoice.php:386
 msgid "This controls the title which the user sees during checkout."
-msgstr ""
+msgstr "Dit bepaalt de titel die de klant ziet tijdens het afrekenen."
 
 #: includes/Gateways/class-biller-business-invoice.php:391
 msgid "Description"
-msgstr ""
+msgstr "Beschrijving"
 
 #: includes/Gateways/class-biller-business-invoice.php:393
 msgid "Payment method description that the customer will see on your checkout."
-msgstr ""
+msgstr "Betaalmethode beschrijving die de klant ziet tijdens het afrekenen"
 
 #: includes/Gateways/class-biller-business-invoice.php:432
 msgid "Enable/Disable"
-msgstr ""
+msgstr "Inschakelen/Uitschakelen"
 
 #: includes/Gateways/class-biller-business-invoice.php:433
 msgid "Enable Biller business invoice"
-msgstr ""
+msgstr "Inschakelen Biller Zakelijk achteraf betalen"
 
 #: includes/Gateways/class-biller-business-invoice.php:436
 msgid "Enable/Disable Biller payment method."
-msgstr ""
+msgstr "Inschakelen/Uitschakelen Biller betaalmethode"
 
 #: includes/Gateways/class-biller-business-invoice.php:440
 msgid "Mode"
-msgstr ""
+msgstr "Modus"
 
 #: includes/Gateways/class-biller-business-invoice.php:443
 msgid "Sandbox"
-msgstr ""
+msgstr "Sandbox"
 
 #: includes/Gateways/class-biller-business-invoice.php:444
 msgid "Live"
-msgstr ""
+msgstr "Productie"
 
 #: includes/Gateways/class-biller-business-invoice.php:446
-msgid "Options field that allows merchants to choose either live or sandbox mode."
-msgstr ""
+msgid ""
+"Options field that allows merchants to choose either live or sandbox mode."
+msgstr "Optieveld waarmee verkopers productie of test modus kunnen kiezen."
 
 #: includes/Gateways/class-biller-business-invoice.php:452
 #: includes/Gateways/class-biller-business-invoice.php:473
 msgid "Webshop UUID"
-msgstr ""
+msgstr "Webshop UUID"
 
 #: includes/Gateways/class-biller-business-invoice.php:454
 #: includes/Gateways/class-biller-business-invoice.php:475
 msgid "Unique identifier of the Webshop."
-msgstr ""
+msgstr "Unieke identificatie van de webshop"
 
 #: includes/Gateways/class-biller-business-invoice.php:459
 #: includes/Gateways/class-biller-business-invoice.php:480
 msgid "Username"
-msgstr ""
+msgstr "Gebruikersnaam"
 
 #: includes/Gateways/class-biller-business-invoice.php:461
 #: includes/Gateways/class-biller-business-invoice.php:482
 msgid " Biller username"
-msgstr ""
+msgstr "Biller gebruikersnaam"
 
 #: includes/Gateways/class-biller-business-invoice.php:466
 #: includes/Gateways/class-biller-business-invoice.php:487
 msgid "Password"
-msgstr ""
+msgstr "Wachtwoord"
 
 #: includes/Gateways/class-biller-business-invoice.php:468
 #: includes/Gateways/class-biller-business-invoice.php:489
 msgid "Biller password"
-msgstr ""
+msgstr "Biller wachtwoord"
 
 #: includes/Repositories/class-base-repository.php:289
 msgid "Column is not id or index."
-msgstr ""
+msgstr "Kolom is geen ID of index."
 
 #: includes/Utility/class-translator.php:13
 msgid "Automatic order synchronization failed!"
-msgstr ""
+msgstr "Automatisch synchroniseren van order mislukt"
 
 #: includes/Utility/class-translator.php:15
-msgid "There was an error during the synchronization of the order %s. The plugin will not be able to synchronize any further changes automatically. Failure message: %s"
+msgid ""
+"There was an error during the synchronization of the order %s. The plugin "
+"will not be able to synchronize any further changes automatically. Failure "
+"message: %s"
 msgstr ""
+"Er is een fout opgetreden tijdens het synchroniseren van de orders. De plug-"
+"in kan verdere wijzigingen niet automatisch synchroniseren. Foutcode: "
 
 #: includes/Utility/class-translator.php:17
 msgid "Order status update failed!"
-msgstr ""
+msgstr "Order status update mislukt!"
 
 #: includes/Utility/class-translator.php:19
 msgid "Error message: %s"
-msgstr ""
+msgstr "Foutmelding: "
 
 #: includes/Utility/class-translator.php:21
 msgid "Order capture is rejected by Biller."
-msgstr ""
+msgstr "Order capture is afgewezen door Biller"
 
 #: includes/Utility/class-translator.php:23
 #: includes/Utility/class-translator.php:27
 msgid "Biller error message: %s"
-msgstr ""
+msgstr "Biller foutcode: "
 
 #: includes/Utility/class-translator.php:25
 msgid "Cancellation is rejected by Biller."
-msgstr ""
+msgstr "Annulering is afgewezen door Biller"
 
 #: includes/Utility/class-translator.php:29
 msgid "Order amount refund failed"
-msgstr ""
+msgstr "Terugbetaling order mislukt"
 
 #: includes/Utility/class-translator.php:31
 #: includes/Utility/class-translator.php:35
 msgid "Order refund finished with errors: %s"
-msgstr ""
+msgstr "Terugbetaling van orderregel bevat errors: "
 
 #: includes/Utility/class-translator.php:33
 msgid "Order line refund failed"
-msgstr ""
+msgstr "Order regel terugbetaling mislukt"
 
 #: includes/Utility/class-translator.php:37
 msgid "Woocommerce order refund failed."
-msgstr ""
+msgstr "WooCommerce order terugbetaling mislukt"
 
 #: includes/Utility/class-translator.php:39
 msgid "Order refund failed for refund from Biller with error message: %s"
-msgstr ""
+msgstr "Order terugbetaling mislukt bij Biller met foutmelding:"
 
 #: includes/Utility/class-translator.php:41
 msgid "Shop change is not synchronized"
-msgstr ""
+msgstr "Shop wijziging is niet gesynchroniseerd"
 
 #: includes/Utility/class-translator.php:43
-msgid "Order %s changes will not be automatically synchronized to the Biller anymore. Order refund %s was deleted from the order %s, but the refund deletion is not permitted by the Biller."
+msgid ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Order refund %s was deleted from the order %s, but the refund "
+"deletion is not permitted by the Biller."
 msgstr ""
+"Orderwijzigingen kunnen niet meer automatisch gesynchroniseerd naar Biller. "
+"Order terugbetaling is verwijderd van de order, maar de verwijdering is niet "
+"toegestaan bij Biller "
 
 #: includes/Utility/class-translator.php:45
-msgid "Order %s changes will not be automatically synchronized to the Biller anymore. Manual order refund %s created for the order %s."
+msgid ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Manual order refund %s created for the order %s."
 msgstr ""
+"Orderwijzigingen kunnen niet meer automatisch gesynchroniseerd naar Biller. "
+"Manuele order terugbetaling is aangemaakt voor order:"
 
 #: includes/Utility/class-translator.php:47
-msgid "Order %s changes will not be automatically synchronized to the Biller anymore. Order was deleted, but the order deletion is not permitted by the Biller."
+msgid ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Order was deleted, but the order deletion is not permitted by the "
+"Biller."
 msgstr ""
+"Orderwijzigingen kunnen niet meer automatisch gesynchroniseerd naar Biller. "
+"Order is verwijderd, maar het verwijderen van een order is niet toegestaan "
+"bij Biller"
 
 #: includes/Utility/class-translator.php:49
-msgid "Order %s changes will not be automatically synchronized to the Biller anymore. Order total is updated, but the order update is not permitted by the Biller."
+msgid ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Order total is updated, but the order update is not permitted by "
+"the Biller."
 msgstr ""
+"Orderwijzigingen kunnen niet meer automatisch gesynchroniseerd worden naar "
+"Biller. Order totaal is geupdate, maar de order update is niet toegestaan "
+"bij Biller."
 
 #: includes/Utility/class-translator.php:51
-msgid "Order %s changes are detected but not synchronized to the Biller. Order update is not permitted by the Biller."
+msgid ""
+"Order %s changes are detected but not synchronized to the Biller. Order "
+"update is not permitted by the Biller."
 msgstr ""
+"Orderwijzigingen zijn gedetecteerd maar niet gesynchroniseerd naar Biller. "
+"De orderwijziging is niet toegestaan bij Biller"
 
 #: resources/views/admin/order/meta-post-box.php:11
 msgid "Payment status:"
-msgstr ""
+msgstr "Betaal status "
 
 #: resources/views/admin/order/meta-post-box.php:19
 #: resources/views/admin/order/meta-post-box.php:31
 msgid "Payment link"
-msgstr ""
+msgstr "Betaallink"
 
 #: resources/views/admin/order/meta-post-box.php:20
 msgid "The payment link will redirect the customer to Biller for payment."
 msgstr ""
+"De betaallink zal de klant doorverwijzen naar Biller om de betaling af te "
+"ronden."
 
 #: resources/views/admin/order/meta-post-box.php:26
 msgid "Copy"
-msgstr ""
+msgstr "Kopieer"
 
 #: resources/views/admin/order/meta-post-box.php:32
-msgid "For Biller a company name is required for a valid payment link, please enter the custom field value of the order."
+msgid ""
+"For Biller a company name is required for a valid payment link, please enter "
+"the custom field value of the order."
 msgstr ""
+"Een bedrijfsnaam is benodigd voor het aanmaken van een betaallink van "
+"Biller. Vul de gegevens in het veld voor de order"
 
 #: resources/views/admin/order/meta-post-box.php:39
 msgid "Cancel"
-msgstr ""
+msgstr "Annulering"
 
 #: resources/views/admin/order/meta-post-box.php:43
 msgid "Capture"
-msgstr ""
+msgstr "Capture"
 
 #: resources/views/admin/payments/notification-hub.php:11
 msgid "Notifications"
-msgstr ""
+msgstr "Notificaties"
 
 #: resources/views/admin/payments/notification-hub.php:18
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: resources/views/admin/payments/notification-hub.php:20
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: resources/views/admin/payments/notification-hub.php:22
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: resources/views/admin/payments/notification-hub.php:24
 msgid "Order number"
-msgstr ""
+msgstr "Ordernummer"
 
 #: resources/views/admin/payments/notification-hub.php:26
 msgid "Message"
-msgstr ""
+msgstr "Bericht"
 
 #: resources/views/admin/payments/notification-hub.php:28
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #: resources/views/admin/payments/notification-hub.php:40
 msgid "Next"
-msgstr ""
+msgstr "Volgende"
 
 #: resources/views/admin/payments/notification-hub.php:43
 msgid "Previous"
-msgstr ""
+msgstr "Vorige"
 
 #: resources/views/checkout/custom-payment-fields.php:2
 msgid "Company name"
-msgstr ""
+msgstr "Bedrijfsnaam"
 
 #: resources/views/checkout/custom-payment-fields.php:4
 msgid "Registration number"
-msgstr ""
+msgstr "KvK nummer"
 
 #: resources/views/checkout/custom-payment-fields.php:5
 msgid "recommended"
-msgstr ""
+msgstr "Aanbevolen"
 
 #: resources/views/checkout/custom-payment-fields.php:7
 msgid "VAT number"
-msgstr ""
+msgstr "BTW nummer"
 
 #: resources/views/checkout/custom-payment-fields.php:8
 msgid "optional"
-msgstr ""
+msgstr "Optioneel"

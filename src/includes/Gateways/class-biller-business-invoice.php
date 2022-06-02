@@ -34,7 +34,7 @@ use WP_Error;
 class Biller_Business_Invoice extends WC_Payment_Gateway {
 	const BILLER_ICON_PATH = '/resources/images/biller_logo.svg';
 	const BILLER_DEFAULT_TITLE = 'Biller business invoice';
-	const BILLER_DEFAULT_DESCRIPTION = 'The payment solution that advances both sides. We pay out every invoice on time. And buyers get to choose. Buy Now, Pay Later.';
+	const BILLER_DEFAULT_DESCRIPTION = 'Biller is designed to optimally serve both the business seller and buyer. With Biller businesses buy now and pay later.';
 
 	/**
 	 * @var AuthorizationService
@@ -68,7 +68,7 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 		$this->id                 = Biller::BILLER_BUSINESS_INVOICE_ID;
 		$this->has_fields         = true;
 		$this->method_title       = __( 'Biller business invoice', 'biller-business-invoice' );
-		$this->method_description = __( 'The payment solution that advances both sides. We pay out every invoice on time. And buyers get to choose. Buy Now, Pay Later.',
+		$this->method_description = __( 'Biller is designed to optimally serve both the business seller and buyer. With Biller businesses buy now and pay later.',
 			'biller-business-invoice' );
 		$this->icon               = Biller::get_plugin_url( self::BILLER_ICON_PATH );
 
@@ -458,14 +458,14 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 			'live-username'      => array(
 				'title'       => __( 'Username', 'biller-business-invoice' ),
 				'type'        => 'text',
-				'description' => __( ' Biller seller username.', 'biller-business-invoice' ),
+				'description' => __( ' Biller username', 'biller-business-invoice' ),
 				'desc_tip'    => true,
 				'default'     => '',
 			),
 			'live-password'      => array(
 				'title'       => __( 'Password', 'biller-business-invoice' ),
 				'type'        => 'password',
-				'description' => __( 'Biller seller password.', 'biller-business-invoice' ),
+				'description' => __( 'Biller password', 'biller-business-invoice' ),
 				'desc_tip'    => true,
 				'default'     => '',
 			),
@@ -479,14 +479,14 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 			'sandbox-username'   => array(
 				'title'       => __( 'Username', 'biller-business-invoice' ),
 				'type'        => 'text',
-				'description' => __( ' Biller seller username.', 'biller-business-invoice' ),
+				'description' => __( ' Biller username', 'biller-business-invoice' ),
 				'desc_tip'    => true,
 				'default'     => '',
 			),
 			'sandbox-password'   => array(
 				'title'       => __( 'Password', 'biller-business-invoice' ),
 				'type'        => 'password',
-				'description' => __( 'Biller seller password.', 'biller-business-invoice' ),
+				'description' => __( 'Biller password', 'biller-business-invoice' ),
 				'desc_tip'    => true,
 				'default'     => '',
 			)

@@ -54,7 +54,7 @@ class Biller_Payment_Redirection_Controller extends Biller_Base_Controller {
 
 		try{
 			if ( $order_status === self::SUCCESS_STATUS  && $this->order_service->isPaymentAccepted( $order_id )) {
-				$order->update_status( 'processing', __( 'Awaiting Biller invoice payment.', 'biller-business-invoice' ) );
+				$order->update_status( 'processing', __( 'Accepted by Biller', 'biller-business-invoice' ) );
 				wp_redirect( $this->get_order_received_url( $order ) );
 
 				return;

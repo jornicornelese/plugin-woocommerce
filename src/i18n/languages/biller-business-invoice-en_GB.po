@@ -3,180 +3,200 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Biller Business Invoice 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/biller-business-invoice\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/biller-business-"
+"invoice\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2022-06-02T10:20:13+02:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"PO-Revision-Date: 2022-06-02 10:51+0200\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Domain: biller-business-invoice\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en_GB\n"
 
 #. Plugin Name of the plugin
 msgid "Biller Business Invoice"
-msgstr ""
+msgstr "Biller Business Invoice"
 
 #. Description of the plugin
 #: includes/Gateways/class-biller-business-invoice.php:71
-msgid "Biller is designed to optimally serve both the business seller and buyer. With Biller businesses buy now and pay later."
+msgid ""
+"Biller is designed to optimally serve both the business seller and buyer. "
+"With Biller businesses buy now and pay later."
 msgstr ""
+"Biller is designed to optimally serve both the business seller and buyer. "
+"With Biller businesses buy now and pay later."
 
 #. Author of the plugin
 msgid "Biller"
-msgstr ""
+msgstr "Biller"
 
 #: includes/class-biller.php:152
 #: includes/Gateways/class-biller-business-invoice.php:70
 msgid "Biller business invoice"
-msgstr ""
+msgstr "Biller business invoice"
 
 #: includes/class-biller.php:206
 msgid "View Biller configuration"
-msgstr ""
+msgstr "View Biller configuration"
 
 #: includes/class-biller.php:207
 msgid "Settings"
-msgstr ""
+msgstr "Settings"
 
 #: includes/class-biller.php:246
 msgid "Please install and activate WooCommerce."
-msgstr ""
+msgstr "Please install and activate WooCommerce."
 
 #: includes/Components/Services/class-admin-order-action-handlers.php:171
 msgid "Order %s changes are not synchronized to the Biller."
-msgstr ""
+msgstr "Order %s changes are not synchronized to the Biller."
 
 #: includes/Components/Services/class-admin-order-action-handlers.php:313
-msgid "Order %s changes will not be automatically synchronized to the Biller anymore due to unsupported action."
+msgid ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore due to unsupported action."
 msgstr ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore due to unsupported action."
 
 #: includes/Components/Services/class-order-request-service.php:83
 msgid "The unexpected error occurred, please select different payment method."
-msgstr ""
+msgstr "The unexpected error occurred, please select different payment method."
 
 #: includes/Components/Services/class-refund-amount-service.php:32
 msgid "Order refund rejected with error: %s"
-msgstr ""
+msgstr "Order refund rejected with error: %s"
 
 #: includes/Components/Services/class-refund-amount-service.php:53
 msgid "Order refund could not be processed, unknown order id: %s"
-msgstr ""
+msgstr "Order refund could not be processed, unknown order id: %s"
 
 #: includes/Controllers/class-biller-payment-redirection-controller.php:57
 msgid "Accepted by Biller"
-msgstr ""
+msgstr "Accepted by Biller"
 
 #: includes/Gateways/class-biller-business-invoice.php:360
 msgid "Invalid field: "
-msgstr ""
+msgstr "Invalid field: "
 
 #: includes/Gateways/class-biller-business-invoice.php:362
 msgid "Company name cannot be empty."
-msgstr ""
+msgstr "Company name cannot be empty."
 
 #: includes/Gateways/class-biller-business-invoice.php:368
 msgid "Registration number should be a numeric value."
-msgstr ""
+msgstr "Registration number should be a numeric value."
 
 #: includes/Gateways/class-biller-business-invoice.php:384
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: includes/Gateways/class-biller-business-invoice.php:386
 msgid "This controls the title which the user sees during checkout."
-msgstr ""
+msgstr "This controls the title which the user sees during checkout."
 
 #: includes/Gateways/class-biller-business-invoice.php:391
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: includes/Gateways/class-biller-business-invoice.php:393
 msgid "Payment method description that the customer will see on your checkout."
 msgstr ""
+"Payment method description that the customer will see on your checkout."
 
 #: includes/Gateways/class-biller-business-invoice.php:432
 msgid "Enable/Disable"
-msgstr ""
+msgstr "Enable/Disable"
 
 #: includes/Gateways/class-biller-business-invoice.php:433
 msgid "Enable Biller business invoice"
-msgstr ""
+msgstr "Enable Biller business invoice"
 
 #: includes/Gateways/class-biller-business-invoice.php:436
 msgid "Enable/Disable Biller payment method."
-msgstr ""
+msgstr "Enable/Disable Biller payment method."
 
 #: includes/Gateways/class-biller-business-invoice.php:440
 msgid "Mode"
-msgstr ""
+msgstr "Mode"
 
 #: includes/Gateways/class-biller-business-invoice.php:443
 msgid "Sandbox"
-msgstr ""
+msgstr "Sandbox"
 
 #: includes/Gateways/class-biller-business-invoice.php:444
 msgid "Live"
-msgstr ""
+msgstr "Live"
 
 #: includes/Gateways/class-biller-business-invoice.php:446
-msgid "Options field that allows merchants to choose either live or sandbox mode."
+msgid ""
+"Options field that allows merchants to choose either live or sandbox mode."
 msgstr ""
+"Options field that allows merchants to choose either live or sandbox mode."
 
 #: includes/Gateways/class-biller-business-invoice.php:452
 #: includes/Gateways/class-biller-business-invoice.php:473
 msgid "Webshop UUID"
-msgstr ""
+msgstr "Webshop UUID"
 
 #: includes/Gateways/class-biller-business-invoice.php:454
 #: includes/Gateways/class-biller-business-invoice.php:475
 msgid "Unique identifier of the Webshop."
-msgstr ""
+msgstr "Unique identifier of the Webshop."
 
 #: includes/Gateways/class-biller-business-invoice.php:459
 #: includes/Gateways/class-biller-business-invoice.php:480
 msgid "Username"
-msgstr ""
+msgstr "Username"
 
 #: includes/Gateways/class-biller-business-invoice.php:461
 #: includes/Gateways/class-biller-business-invoice.php:482
 msgid " Biller username"
-msgstr ""
+msgstr " Biller username"
 
 #: includes/Gateways/class-biller-business-invoice.php:466
 #: includes/Gateways/class-biller-business-invoice.php:487
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 #: includes/Gateways/class-biller-business-invoice.php:468
 #: includes/Gateways/class-biller-business-invoice.php:489
 msgid "Biller password"
-msgstr ""
+msgstr "Biller password"
 
 #: includes/Repositories/class-base-repository.php:289
 msgid "Column is not id or index."
-msgstr ""
+msgstr "Column is not id or index."
 
 #: includes/Utility/class-translator.php:13
 msgid "Automatic order synchronization failed!"
-msgstr ""
+msgstr "Automatic order synchronization failed!"
 
 #: includes/Utility/class-translator.php:15
-msgid "There was an error during the synchronization of the order %s. The plugin will not be able to synchronize any further changes automatically. Failure message: %s"
+msgid ""
+"There was an error during the synchronization of the order %s. The plugin "
+"will not be able to synchronize any further changes automatically. Failure "
+"message: %s"
 msgstr ""
+"There was an error during the synchronization of the order %s. The plugin "
+"will not be able to synchronize any further changes automatically. Failure "
+"message: %s"
 
 #: includes/Utility/class-translator.php:17
 msgid "Order status update failed!"
-msgstr ""
+msgstr "Order status update failed!"
 
 #: includes/Utility/class-translator.php:19
 msgid "Error message: %s"
-msgstr ""
+msgstr "Error message: %s"
 
 #: includes/Utility/class-translator.php:21
 msgid "Order capture is rejected by Biller."
-msgstr ""
+msgstr "Order capture is rejected by Biller."
 
 #: includes/Utility/class-translator.php:23
 #: includes/Utility/class-translator.php:27
@@ -185,134 +205,164 @@ msgstr ""
 
 #: includes/Utility/class-translator.php:25
 msgid "Cancellation is rejected by Biller."
-msgstr ""
+msgstr "Cancellation is rejected by Biller."
 
 #: includes/Utility/class-translator.php:29
 msgid "Order amount refund failed"
-msgstr ""
+msgstr "Order amount refund failed"
 
 #: includes/Utility/class-translator.php:31
 #: includes/Utility/class-translator.php:35
 msgid "Order refund finished with errors: %s"
-msgstr ""
+msgstr "Order refund finished with errors: %s"
 
 #: includes/Utility/class-translator.php:33
 msgid "Order line refund failed"
-msgstr ""
+msgstr "Order line refund failed"
 
 #: includes/Utility/class-translator.php:37
 msgid "Woocommerce order refund failed."
-msgstr ""
+msgstr "Woocommerce order refund failed."
 
 #: includes/Utility/class-translator.php:39
 msgid "Order refund failed for refund from Biller with error message: %s"
-msgstr ""
+msgstr "Order refund failed for refund from Biller with error message: %s"
 
 #: includes/Utility/class-translator.php:41
 msgid "Shop change is not synchronized"
-msgstr ""
+msgstr "Shop change is not synchronized"
 
 #: includes/Utility/class-translator.php:43
-msgid "Order %s changes will not be automatically synchronized to the Biller anymore. Order refund %s was deleted from the order %s, but the refund deletion is not permitted by the Biller."
+msgid ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Order refund %s was deleted from the order %s, but the refund "
+"deletion is not permitted by the Biller."
 msgstr ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Order refund %s was deleted from the order %s, but the refund "
+"deletion is not permitted by the Biller."
 
 #: includes/Utility/class-translator.php:45
-msgid "Order %s changes will not be automatically synchronized to the Biller anymore. Manual order refund %s created for the order %s."
+msgid ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Manual order refund %s created for the order %s."
 msgstr ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Manual order refund %s created for the order %s."
 
 #: includes/Utility/class-translator.php:47
-msgid "Order %s changes will not be automatically synchronized to the Biller anymore. Order was deleted, but the order deletion is not permitted by the Biller."
+msgid ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Order was deleted, but the order deletion is not permitted by the "
+"Biller."
 msgstr ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Order was deleted, but the order deletion is not permitted by the "
+"Biller."
 
 #: includes/Utility/class-translator.php:49
-msgid "Order %s changes will not be automatically synchronized to the Biller anymore. Order total is updated, but the order update is not permitted by the Biller."
+msgid ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Order total is updated, but the order update is not permitted by "
+"the Biller."
 msgstr ""
+"Order %s changes will not be automatically synchronized to the Biller "
+"anymore. Order total is updated, but the order update is not permitted by "
+"the Biller."
 
 #: includes/Utility/class-translator.php:51
-msgid "Order %s changes are detected but not synchronized to the Biller. Order update is not permitted by the Biller."
+msgid ""
+"Order %s changes are detected but not synchronized to the Biller. Order "
+"update is not permitted by the Biller."
 msgstr ""
+"Order %s changes are detected but not synchronized to the Biller. Order "
+"update is not permitted by the Biller."
 
 #: resources/views/admin/order/meta-post-box.php:11
 msgid "Payment status:"
-msgstr ""
+msgstr "Payment status:"
 
 #: resources/views/admin/order/meta-post-box.php:19
 #: resources/views/admin/order/meta-post-box.php:31
 msgid "Payment link"
-msgstr ""
+msgstr "Payment link"
 
 #: resources/views/admin/order/meta-post-box.php:20
 msgid "The payment link will redirect the customer to Biller for payment."
-msgstr ""
+msgstr "The payment link will redirect the customer to Biller for payment."
 
 #: resources/views/admin/order/meta-post-box.php:26
 msgid "Copy"
-msgstr ""
+msgstr "Copy"
 
 #: resources/views/admin/order/meta-post-box.php:32
-msgid "For Biller a company name is required for a valid payment link, please enter the custom field value of the order."
+msgid ""
+"For Biller a company name is required for a valid payment link, please enter "
+"the custom field value of the order."
 msgstr ""
+"For Biller a company name is required for a valid payment link, please enter "
+"the custom field value of the order."
 
 #: resources/views/admin/order/meta-post-box.php:39
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 #: resources/views/admin/order/meta-post-box.php:43
 msgid "Capture"
-msgstr ""
+msgstr "Capture"
 
 #: resources/views/admin/payments/notification-hub.php:11
 msgid "Notifications"
-msgstr ""
+msgstr "Notifications"
 
 #: resources/views/admin/payments/notification-hub.php:18
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: resources/views/admin/payments/notification-hub.php:20
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 #: resources/views/admin/payments/notification-hub.php:22
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: resources/views/admin/payments/notification-hub.php:24
 msgid "Order number"
-msgstr ""
+msgstr "Order number"
 
 #: resources/views/admin/payments/notification-hub.php:26
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 #: resources/views/admin/payments/notification-hub.php:28
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #: resources/views/admin/payments/notification-hub.php:40
 msgid "Next"
-msgstr ""
+msgstr "Next"
 
 #: resources/views/admin/payments/notification-hub.php:43
 msgid "Previous"
-msgstr ""
+msgstr "Previous"
 
 #: resources/views/checkout/custom-payment-fields.php:2
 msgid "Company name"
-msgstr ""
+msgstr "Company name"
 
 #: resources/views/checkout/custom-payment-fields.php:4
 msgid "Registration number"
-msgstr ""
+msgstr "Registration number"
 
 #: resources/views/checkout/custom-payment-fields.php:5
 msgid "recommended"
-msgstr ""
+msgstr "recommended"
 
 #: resources/views/checkout/custom-payment-fields.php:7
 msgid "VAT number"
-msgstr ""
+msgstr "VAT number"
 
 #: resources/views/checkout/custom-payment-fields.php:8
 msgid "optional"
-msgstr ""
+msgstr "optional"

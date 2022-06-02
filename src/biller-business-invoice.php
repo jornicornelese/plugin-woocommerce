@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Biller Business Invoice
-Description: The payment solution that advances both sides. We pay out every invoice on time. And buyers get to choose Buy Now, Pay Later.
+Description: Biller is designed to optimally serve both the business seller and buyer. With Biller businesses buy now and pay later.
 Version: 1.0.0
 Author: Biller
 */

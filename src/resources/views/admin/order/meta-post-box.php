@@ -29,7 +29,7 @@
     <div id="biller-payment-link-container" class="biller-buttons-container <?php echo $data['display_company_info_message'] ? '' : 'biller-hide'; ?>">
         <label class="biller-property-name">
 			<?php echo __( 'Payment link', 'biller-business-invoice' ); ?>
-			<?php echo wc_help_tip( __( "The Biller compay name is required for valid payment link, please enter custom field value to the order.",
+			<?php echo wc_help_tip( __( "For Biller a company name is required for a valid payment link, please enter the custom field value of the order.",
 				'biller-business-invoice' ) ); ?>
         </label>
     </div>
