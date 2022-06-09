@@ -95,6 +95,7 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 		) );
 		add_action( 'wp_enqueue_scripts', function () {
 			Script_Loader::load_js( [ '/js/checkout/biller.checkout.js' ] );
+			Script_Loader::load_css( [ '/css/icon.css' ] );
 		} );
 		add_action( 'admin_enqueue_scripts', function () {
 			Script_Loader::load_js( [ '/js/admin/biller.mode-switch.js' ] );
