@@ -107,24 +107,6 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 		} );
 	}
 
-	/**
-	 * Get name of the key value from options table
-	 *
-	 * @return string
-	 */
-	public static function get_option_name() {
-		return 'woocommerce_' . Biller::BILLER_BUSINESS_INVOICE_ID . '_settings';
-	}
-
-	/**
-	 * Get name of the key value from options table
-	 *
-	 * @return string
-	 */
-	public static function get_option_status_name() {
-		return 'woocommerce_' . Biller::BILLER_BUSINESS_INVOICE_ID . '_status';
-	}
-
 	public function allow_save_settings() {
 		$this->init_settings();
 

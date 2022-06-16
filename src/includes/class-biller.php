@@ -114,6 +114,24 @@ class Biller {
 	}
 
 	/**
+	 * Get name of the key value from options table
+	 *
+	 * @return string
+	 */
+	public static function get_option_name() {
+		return 'woocommerce_' . self::BILLER_BUSINESS_INVOICE_ID . '_settings';
+	}
+
+	/**
+	 * Get name of the key value from options table
+	 *
+	 * @return string
+	 */
+	public static function get_option_status_name() {
+		return 'woocommerce_' . self::BILLER_BUSINESS_INVOICE_ID . '_status';
+	}
+
+	/**
 	 * Allows query vars to be added, removed, or changed
 	 *
 	 * @param $vars
@@ -366,6 +384,6 @@ class Biller {
 		$installer = new Database( new Plugin_Options_Repository() );
 		$installer->uninstall();
 		delete_option( 'BILLER_SCHEMA_VERSION' );
-		delete_option( Biller_Business_Invoice::get_option_name() );
+		delete_option( self::get_option_name() );
 	}
 }

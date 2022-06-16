@@ -6,7 +6,6 @@ use Biller\Biller;
 use Biller\BusinessLogic\Authorization\DTO\UserInfo;
 use Biller\BusinessLogic\Integration\Authorization\UserInfoRepository;
 use Biller\Domain\Exceptions\InvalidArgumentException;
-use Biller\Gateways\Biller_Business_Invoice;
 use RuntimeException;
 
 /**
@@ -63,7 +62,7 @@ class Plugin_Options_Repository implements UserInfoRepository {
 	 * @return void
 	 */
 	public function saveMode( $mode ) {
-		update_option( Biller_Business_Invoice::get_option_status_name(), $mode );
+		update_option( Biller::get_option_status_name(), $mode );
 	}
 
 	/**
@@ -75,7 +74,7 @@ class Plugin_Options_Repository implements UserInfoRepository {
 	 */
 	public function save_biller_gateway_settings( array $settings ) {
 		return update_option(
-			Biller_Business_Invoice::get_option_name(),
+			Biller::get_option_name(),
 			apply_filters( 'woocommerce_settings_api_sanitized_fields_' . Biller::BILLER_BUSINESS_INVOICE_ID, $settings ),
 			'yes' );
 
@@ -105,7 +104,7 @@ class Plugin_Options_Repository implements UserInfoRepository {
 	 * @return false|mixed|void
 	 */
 	public function get_biller_gateway_settings() {
-		$settings = get_option( Biller_Business_Invoice::get_option_name(), null );
+		$settings = get_option( Biller::get_option_name(), null );
 		if ( $settings ) {
 			$settings = $this->decrypt( $settings );
 		}
@@ -123,7 +122,7 @@ class Plugin_Options_Repository implements UserInfoRepository {
 	 * @return string|null
 	 */
 	public function get_mode() {
-		return get_option( Biller_Business_Invoice::get_option_status_name(), null );
+		return get_option( Biller::get_option_status_name(), null );
 	}
 
 	/**
