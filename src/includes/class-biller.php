@@ -24,7 +24,7 @@ require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 class Biller {
 
-	const VERSION = '1.0.0';
+	const VERSION = '1.0.1';
 
 	const INTEGRATION_NAME = 'biller-business-invoice';
 	const BASE_API_URI = '/biller';
