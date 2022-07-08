@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f15684dbdef7e7146091bfa69cd63d82",
+    "content-hash": "f51356a7b5420b3bf5024fe442d9b3d7",
     "packages": [
         {
             "name": "biller/integration-core",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:biller-ai/plugins-core.git",
-                "reference": "b3b36403fb1df0da27e2c98c1709d47a7ad37ccd"
+                "reference": "bc22bb4099485bf537d1403708a52c0d9ff7a6a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biller-ai/plugins-core/zipball/b3b36403fb1df0da27e2c98c1709d47a7ad37ccd",
-                "reference": "b3b36403fb1df0da27e2c98c1709d47a7ad37ccd",
+                "url": "https://api.github.com/repos/biller-ai/plugins-core/zipball/bc22bb4099485bf537d1403708a52c0d9ff7a6a6",
+                "reference": "bc22bb4099485bf537d1403708a52c0d9ff7a6a6",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "proprietary"
             ],
             "description": "Biller integrations core library",
-            "time": "2022-06-22T08:44:37+00:00"
+            "time": "2022-07-08T11:59:36+00:00"
         }
     ],
     "packages-dev": [
@@ -1471,16 +1471,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v4.4.37",
+            "version": "v4.4.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "d7f637cc0f0cc14beb0984f2bb50da560b271311"
+                "reference": "07e392f0ef78376d080d5353c081a5e5704835bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/d7f637cc0f0cc14beb0984f2bb50da560b271311",
-                "reference": "d7f637cc0f0cc14beb0984f2bb50da560b271311",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/07e392f0ef78376d080d5353c081a5e5704835bd",
+                "reference": "07e392f0ef78376d080d5353c081a5e5704835bd",
                 "shasum": ""
             },
             "require": {
@@ -1522,7 +1522,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v4.4.37"
+                "source": "https://github.com/symfony/yaml/tree/v4.4.43"
             },
             "funding": [
                 {
@@ -1538,7 +1538,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-24T20:11:01+00:00"
+            "time": "2022-06-20T08:31:17+00:00"
         },
         {
             "name": "webmozart/assert",
