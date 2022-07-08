@@ -103,6 +103,10 @@ class Order_Request_Service {
 	 * @throws \Exception
 	 */
 	public function create_order_request( WC_Order $order ) {
+		// When order request initialized via the direct order status update to the "Completed" session is missing.
+		WC()->frontend_includes();
+		WC()->initialize_session();
+
 		$user_info = $this->user_info_repository->getActiveUserInfo();
 		if ( $user_info === null ) {
 			throw new InvalidArgumentException( 'Biller user does not exist!' );
