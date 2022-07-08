@@ -2,7 +2,7 @@
 /*
 Plugin Name: Biller Business Invoice
 Description: Biller is designed to optimally serve both the business seller and buyer. With Biller businesses buy now and pay later.
-Version: 1.0.0
+Version: 1.0.2
 Author: Biller
 */
 
