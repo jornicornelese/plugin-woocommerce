@@ -119,6 +119,7 @@ class Order_Request_Service {
 
 		$order_request_factory->setExternalWebshopUID( $user_info->getWebShopUID() );
 		$order_request_factory->setExternalOrderUID( $order->get_id() );
+		$order_request_factory->setExternalOrderNumber( $order->get_order_number() );
 		$order_request_factory->setAmount( Amount::fromFloat( (float) $order->get_total(), $order_currency ) );
 
 		/** @var WC_Order_Item_Product $item */
