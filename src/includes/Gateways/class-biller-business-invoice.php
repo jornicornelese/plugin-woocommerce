@@ -32,7 +32,6 @@ use WC_Payment_Gateway;
 use WP_Error;
 
 class Biller_Business_Invoice extends WC_Payment_Gateway {
-	const BILLER_ICON_PATH = '/resources/images/biller_logo.svg';
 	const BILLER_DEFAULT_TITLE = 'Biller business invoice';
 	const BILLER_DEFAULT_DESCRIPTION = 'Biller is designed to optimally serve both the business seller and buyer. With Biller businesses buy now and pay later.';
 
@@ -70,7 +69,7 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 		$this->method_title       = __( 'Biller business invoice', 'biller-business-invoice' );
 		$this->method_description = __( 'Biller is designed to optimally serve both the business seller and buyer. With Biller businesses buy now and pay later.',
 			'biller-business-invoice' );
-		$this->icon               = Biller::get_plugin_url( self::BILLER_ICON_PATH );
+		$this->icon               = Biller::get_biller_icon_url();
 
 		$this->auth_service          = ServiceRegister::getService( \Biller\BusinessLogic\Authorization\Contracts\AuthorizationService::class );
 		$this->options_repository    = new Plugin_Options_Repository();
@@ -267,9 +266,9 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 	public function process_payment( $order_id ) {
 		$order = new WC_Order( $order_id );
 		if ( isset( $_POST['biller_company_name'] ) ) {
-			$order->update_meta_data( 'biller_company_name', $_POST['biller_company_name'] );
-			$order->update_meta_data( 'biller_registration_number', $_POST['biller_registration_number'] );
-			$order->update_meta_data( 'biller_vat_number', $_POST['biller_vat_number'] );
+			$order->update_meta_data( 'biller_company_name', sanitize_text_field( $_POST['biller_company_name'] ) );
+			$order->update_meta_data( 'biller_registration_number', sanitize_text_field( $_POST['biller_registration_number'] ) );
+			$order->update_meta_data( 'biller_vat_number', sanitize_text_field( $_POST['biller_vat_number'] ) );
 			$order->save();
 		}
 
@@ -331,7 +330,7 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 			echo wpautop( wptexturize( $description ) );
 		}
 
-		echo View::file( '/checkout/custom-payment-fields.php' )->render();
+		echo wp_kses( View::file( '/checkout/custom-payment-fields.php' )->render(), View::get_allowed_tags() );
 	}
 
 	/**
@@ -406,7 +405,7 @@ class Biller_Business_Invoice extends WC_Payment_Gateway {
 	 * @return void
 	 */
 	public function invalid_credentials_notice() {
-		echo View::file( '/admin/payments/invalid-credentials-notice.php' )->render();
+		echo wp_kses( View::file( '/admin/payments/invalid-credentials-notice.php' )->render(), View::get_allowed_tags() );
 	}
 
 	private function get_base_form_fields() {

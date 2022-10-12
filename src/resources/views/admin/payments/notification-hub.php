@@ -5,7 +5,7 @@
 
 ?>
 <input id="endpoint-url" type="hidden" name="endpoint-url" value="<?php
-echo $data['url']; ?>"/>
+echo esc_attr( $data['url'] ); ?>"/>
 <tr valign="top">
     <th scope="row" class=""><?php
 		esc_html_e( 'Notifications', 'biller-business-invoice' ); ?></th>

@@ -37,8 +37,11 @@ class Notice_Service {
 		$notifications = $this->get_notifications();
 		foreach ( $notifications as $notification ) {
 			$is_dismissible = $notification->isDismissible() ? 'is-dismissible' : '';
-			echo '<div class="notice notice-' . $notification->getType() . ' . ' . $is_dismissible . '"><p>' .
-			     __( $notification->getMessage(), 'biller-business-invoice' ) . '</p></div>';
+			echo wp_kses(
+				'<div class="notice notice-' . esc_attr__($notification->getType()) . ' . ' . $is_dismissible . '"><p>' .
+			     esc_html__( $notification->getMessage(), 'biller-business-invoice' ) . '</p></div>',
+				View::get_allowed_tags()
+			);
 		}
 		delete_option( self::OPTION_FIELD_NAME );
 	}

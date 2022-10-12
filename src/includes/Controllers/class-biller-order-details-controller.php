@@ -57,7 +57,7 @@ class Biller_Order_Details_Controller extends Biller_Base_Controller {
 			);
 		}
 
-		echo View::file( '/admin/order/meta-post-box.php' )->render(
+		echo wp_kses(View::file( '/admin/order/meta-post-box.php' )->render(
 			[
 				'payment_status'               => $this->get_status_label( $status ),
 				'payment_link'                 => Shop_Helper::get_payment_link_url( $wp_post->ID ),
@@ -76,7 +76,7 @@ class Biller_Order_Details_Controller extends Biller_Base_Controller {
 				'display_capture_button'       => $status->isAccepted(),
 				'display_cancel_button'        => $status->isAccepted() || $status->isPending()
 			]
-		);
+		), View::get_allowed_tags());
 	}
 
 	/**

@@ -29,6 +29,7 @@ class Biller {
 	const INTEGRATION_NAME = 'biller-business-invoice';
 	const BASE_API_URI = '/biller';
 	const BILLER_BUSINESS_INVOICE_ID = 'biller_business_invoice';
+	const BILLER_ICON_PATH = '/resources/images/biller_logo.svg';
 
 	/**
 	 * @var Biller
@@ -98,19 +99,19 @@ class Biller {
 	 */
 	public static function biller_webhook_handler() {
 		/** @var WebhookHandler $webhook_handler */
-		$webhook_handler = ServiceRegister::getService(WebhookHandler::class);
+		$webhook_handler = ServiceRegister::getService( WebhookHandler::class );
 		$webhook_handler->handle( file_get_contents( 'php://input' ) );
 	}
 
 	/**
-	 * Returns url for the provided directory
+	 * Returns biller icon url
 	 *
 	 * @param $path
 	 *
 	 * @return string
 	 */
-	public static function get_plugin_url( $path ) {
-		return rtrim( plugins_url( "/{$path}/", __DIR__ ), '/' );
+	public static function get_biller_icon_url() {
+		return rtrim( plugins_url( self::BILLER_ICON_PATH, __DIR__ ), '/' );
 	}
 
 	/**
@@ -301,7 +302,10 @@ class Biller {
 			$this,
 			'allow_save_settings'
 		) );
-		add_action( 'woocommerce_api_biller_webhook', new Logging_Callable( array( $this, 'biller_webhook_handler' ) ) );
+		add_action( 'woocommerce_api_biller_webhook', new Logging_Callable( array(
+			$this,
+			'biller_webhook_handler'
+		) ) );
 		add_filter( 'query_vars', array( $this, 'biller_query_vars_filter' ) );
 		add_action( 'template_redirect', array( $this, 'biller_template_redirect' ) );
 		add_filter( 'woocommerce_payment_gateways', array( $this, 'add_biller_payment_gateway' ) );
