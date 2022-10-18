@@ -13,5 +13,5 @@ global $wpdb;
 
 Bootstrap_Component::init();
 
-$plugin = Biller::init( __FILE__ );
-$plugin->uninstall();
+$biller = Biller::init( __FILE__ );
+$biller->uninstall();

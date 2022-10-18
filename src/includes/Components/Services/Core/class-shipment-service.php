@@ -26,6 +26,8 @@ class Shipment_Service implements ShipmentService {
 	}
 
 	/**
+	 * Create shipment request
+	 *
 	 * @param string $order_id
 	 *
 	 * @return ShipmentRequest

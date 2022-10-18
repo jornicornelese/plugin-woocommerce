@@ -17,10 +17,14 @@ use wpdb;
  */
 class Database {
 	/**
+	 * Plugin_Options_Repository
+	 *
 	 * @var Plugin_Options_Repository
 	 */
 	private $repository;
 	/**
+	 * WP Database
+	 *
 	 * @var wpdb
 	 */
 	private $db;
@@ -46,7 +50,11 @@ class Database {
 	public function update( $is_multisite ) {
 		if ( $is_multisite ) {
 			$sites = get_sites();
-			/** @var WP_Site $site */
+			/**
+			 * WP site
+			 *
+			 * @var WP_Site $site
+			 */
 			foreach ( $sites as $site ) {
 				switch_to_blog( $site->blog_id );
 				$this->do_update();
@@ -61,7 +69,7 @@ class Database {
 	 * Executes uninstall script.
 	 */
 	public function uninstall() {
-        $this->drop_table( Base_Repository::TABLE_NAME );
+		$this->drop_table( Base_Repository::TABLE_NAME );
 	}
 
 	/**
@@ -72,18 +80,22 @@ class Database {
 	}
 
 	/**
+	 * Truncate table
+	 *
 	 * @param string $table_name
 	 */
 	private function truncate( $table_name ) {
-		$query = "TRUNCATE " . $this->db->prefix . $table_name . ";";
+		$query = 'TRUNCATE ' . $this->db->prefix . $table_name . ';';
 		$this->db->query( $query );
 	}
 
 	/**
+	 * Drop table
+	 *
 	 * @param string $table_name
 	 */
 	private function drop_table( $table_name ) {
-		$query = "DROP TABLE IF EXISTS " . $this->db->prefix . $table_name;
+		$query = 'DROP TABLE IF EXISTS ' . $this->db->prefix . $table_name;
 		$this->db->query( $query );
 	}
 

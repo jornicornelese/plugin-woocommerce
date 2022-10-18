@@ -36,27 +36,33 @@ class Plugin_Options_Repository implements UserInfoRepository {
 	}
 
 	/**
+	 * Save user info
+	 *
 	 * @inheritDoc
 	 */
 	public function saveUserInfo( UserInfo $userInfo ) {
 		$gateway_settings = $this->get_biller_gateway_settings();
-		$settings         = array_merge( isset( $gateway_settings ) ? $gateway_settings : [], [$userInfo->getMode() => $userInfo->toArray()] );
+		$settings         = array_merge( isset( $gateway_settings ) ? $gateway_settings : [], [ $userInfo->getMode() => $userInfo->toArray() ] );
 		$this->save_biller_gateway_settings( $settings );
 	}
 
 	/**
+	 * Get active user info
+	 *
 	 * @inheritDoc
 	 * @throws InvalidArgumentException
 	 */
 	public function getActiveUserInfo() {
 		$mode = $this->get_mode();
 
-		$gateway_settings = $this->get_biller_gateway_settings_by_mode($mode);
+		$gateway_settings = $this->get_biller_gateway_settings_by_mode( $mode );
 
 		return UserInfo::fromArray( isset( $gateway_settings ) ? $gateway_settings : [] );
 	}
 
 	/**
+	 * Save mode
+	 *
 	 * @param string $mode
 	 *
 	 * @return void
@@ -75,6 +81,11 @@ class Plugin_Options_Repository implements UserInfoRepository {
 	public function save_biller_gateway_settings( array $settings ) {
 		return update_option(
 			Biller::get_option_name(),
+			/**
+			 * Sanitize settings before save
+			 *
+			 * @since 1.0.0
+			 */
 			apply_filters( 'woocommerce_settings_api_sanitized_fields_' . Biller::BILLER_BUSINESS_INVOICE_ID, $settings ),
 			'yes' );
 
@@ -89,10 +100,10 @@ class Plugin_Options_Repository implements UserInfoRepository {
 	 */
 	public function before_settings_saved( array $settings ) {
 		$gateway_settings = $this->get_biller_gateway_settings();
-		$settings = array_merge( isset( $gateway_settings ) ? $gateway_settings : [], $settings );
+		$settings         = array_merge( isset( $gateway_settings ) ? $gateway_settings : [], $settings );
 
 		foreach ( $settings as $key => $setting ) {
-			$settings[$key] = $this->encrypt( $setting );
+			$settings[ $key ] = $this->encrypt( $setting );
 		}
 
 		return $settings;
@@ -115,10 +126,12 @@ class Plugin_Options_Repository implements UserInfoRepository {
 	public function get_biller_gateway_settings_by_mode( $mode ) {
 		$settings = $this->get_biller_gateway_settings();
 
-		return array_key_exists($mode, $settings) ? $settings[$mode] : [];
+		return array_key_exists( $mode, $settings ) ? $settings[ $mode ] : [];
 	}
 
 	/**
+	 * Get mode
+	 *
 	 * @return string|null
 	 */
 	public function get_mode() {
@@ -133,20 +146,20 @@ class Plugin_Options_Repository implements UserInfoRepository {
 	 * @return array
 	 */
 	private function encrypt( $settings ) {
-		if(!is_array($settings) || !array_key_exists('password', $settings)) {
+		if ( ! is_array( $settings ) || ! array_key_exists( 'password', $settings ) ) {
 			return $settings;
 		}
 
 		foreach ( openssl_get_cipher_methods() as $cypher_method ) {
 			$iv_length     = openssl_cipher_iv_length( $cypher_method );
 			$encryption_iv = openssl_random_pseudo_bytes( $iv_length, $string_result );
-			if ( false !== $encryption_iv && $string_result !== false ) {
+			if ( false !== $encryption_iv && false !== $string_result ) {
 				$ciphertext = openssl_encrypt( $settings['password'], $cypher_method, AUTH_KEY, 0, $encryption_iv );
 
 				return array_merge( $settings, [
-						'password'       => $ciphertext,
-						'encryption_iv'  => bin2hex( $encryption_iv ),
-						'cypher_method'  => $cypher_method,
+						'password'      => $ciphertext,
+						'encryption_iv' => bin2hex( $encryption_iv ),
+						'cypher_method' => $cypher_method,
 					]
 				);
 			}
@@ -164,7 +177,7 @@ class Plugin_Options_Repository implements UserInfoRepository {
 	 */
 	private function decrypt( array $settings ) {
 		foreach ( $settings as &$setting ) {
-			if(is_array($setting) && array_key_exists('password', $setting)) {
+			if ( is_array( $setting ) && array_key_exists( 'password', $setting ) ) {
 				$setting['password'] = openssl_decrypt(
 					$setting['password'],
 					$setting['cypher_method'],

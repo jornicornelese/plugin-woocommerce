@@ -45,6 +45,8 @@ class Biller_Order_Capture_Controller extends Biller_Base_Controller {
 	}
 
 	/**
+	 * Get shipment service
+	 *
 	 * @return ShipmentService
 	 */
 	private function get_shipment_service() {

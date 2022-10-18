@@ -13,10 +13,15 @@ use wpdb;
  */
 class Migrator {
 	/**
+	 * WP Database
+	 *
 	 * @var wpdb
 	 */
 	private $db;
+
 	/**
+	 * Version
+	 *
 	 * @var string
 	 */
 	private $version;
@@ -40,7 +45,8 @@ class Migrator {
 	public function execute() {
 		$migration_reader = new Migration_Reader( $this->get_migration_directory(), $this->version, $this->db );
 		while ( $migration_reader->has_next() ) {
-			if ( $migration = $migration_reader->read_next() ) {
+			$migration = $migration_reader->read_next();
+			if ( $migration ) {
 				$migration->execute();
 			}
 		}

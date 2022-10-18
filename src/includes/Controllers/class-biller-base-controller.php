@@ -48,7 +48,11 @@ class Biller_Base_Controller {
 		}
 
 		if ( empty( $action ) ) {
-			/** @noinspection CallableParameterUseCaseInTypeContextInspection */
+			/**
+			 * CallableParameterUseCaseInTypeContextInspection
+			 *
+			 * @noinspection CallableParameterUseCaseInTypeContextInspection
+			 */
 			$action = $this->get_param( 'action' );
 		}
 
@@ -162,6 +166,8 @@ class Biller_Base_Controller {
 	}
 
 	/**
+	 * Remove amp from url parameters
+	 *
 	 * @return void
 	 */
 	private function remove_amp_from_url_parameters() {

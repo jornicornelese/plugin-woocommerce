@@ -27,6 +27,8 @@ class Configuration_Service extends Configuration {
 	}
 
 	/**
+	 * Get current system name
+	 *
 	 * @inheritDoc
 	 *
 	 * @return string
@@ -36,14 +38,15 @@ class Configuration_Service extends Configuration {
 	}
 
 	/**
+	 * Is system specific
+	 *
 	 * @inheritDoc
 	 *
 	 * @param $name
 	 *
 	 * @return bool
 	 */
-	protected function isSystemSpecific($name)
-	{
+	protected function isSystemSpecific( $name) {
 		return false;
 	}
 }

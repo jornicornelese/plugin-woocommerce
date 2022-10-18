@@ -32,16 +32,22 @@ class Biller {
 	const BILLER_ICON_PATH = '/resources/images/biller_logo.svg';
 
 	/**
+	 * Biller instance
+	 *
 	 * @var Biller
 	 */
 	protected static $instance;
 
 	/**
+	 * Biller plugin file
+	 *
 	 * @var string
 	 */
 	private $biller_plugin_file;
 
 	/**
+	 * Database
+	 *
 	 * @var Database
 	 */
 	private $database;
@@ -53,6 +59,8 @@ class Biller {
 	private $is_initialized = false;
 
 	/**
+	 * Notice_Service
+	 *
 	 * @var Notice_Service
 	 */
 	private $notice_service;
@@ -76,7 +84,7 @@ class Biller {
 	 * @return Biller
 	 */
 	public static function init( $biller_plugin_file ) {
-		if ( self::$instance === null ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self( $biller_plugin_file );
 		}
 
@@ -98,7 +106,11 @@ class Biller {
 	 * Handle Webhooks from Biller
 	 */
 	public static function biller_webhook_handler() {
-		/** @var WebhookHandler $webhook_handler */
+		/**
+		 * Webhook handler
+		 *
+		 * @var WebhookHandler $webhook_handler
+		 */
 		$webhook_handler = ServiceRegister::getService( WebhookHandler::class );
 		$webhook_handler->handle( file_get_contents( 'php://input' ) );
 	}
@@ -325,6 +337,8 @@ class Biller {
 	}
 
 	/**
+	 * Change order success message
+	 *
 	 * @param $messages
 	 *
 	 * @return array
@@ -360,7 +374,11 @@ class Biller {
 	 */
 	public function biller_add_payment_link( $string, $email ) {
 		$placeholder = '{biller_payment_link}'; // The corresponding placeholder to be used
-		/** @var WC_Order $order */
+		/**
+		 * WC Order
+		 *
+		 * @var WC_Order $order
+		 */
 		$order = $email->object; // Get the instance of the WC_Order Object
 
 		// Generate a payment link for that order

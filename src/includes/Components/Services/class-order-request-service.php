@@ -39,12 +39,17 @@ use WC_Tax;
 
 class Order_Request_Service {
 	const SHIPPING = 'Shipping_cost';
+
 	/**
+	 * Order service
+	 *
 	 * @var OrderService
 	 */
 	private $order_service;
 
 	/**
+	 * User info repository
+	 *
 	 * @var UserInfoRepository
 	 */
 	private $user_info_repository;
@@ -108,7 +113,7 @@ class Order_Request_Service {
 		WC()->initialize_session();
 
 		$user_info = $this->user_info_repository->getActiveUserInfo();
-		if ( $user_info === null ) {
+		if ( null === $user_info ) {
 			throw new InvalidArgumentException( 'Biller user does not exist!' );
 		}
 
@@ -122,7 +127,11 @@ class Order_Request_Service {
 		$order_request_factory->setExternalOrderNumber( $order->get_order_number() );
 		$order_request_factory->setAmount( Amount::fromFloat( (float) $order->get_total(), $order_currency ) );
 
-		/** @var WC_Order_Item_Product $item */
+		/**
+		 * Item
+		 *
+		 * @var WC_Order_Item_Product $item
+		 */
 		foreach ( $order->get_items() as $item ) {
 			$item_subtotal_inc_tax = (float) $item->get_subtotal() + (float) $item->get_subtotal_tax();
 			$item_total_inc_tax    = (float) $item->get_total() + (float) $item->get_total_tax();
@@ -275,7 +284,7 @@ class Order_Request_Service {
 			}
 
 			$compound_rate = $rate['rate'];
-			if ( $rate['compound'] === "yes" ) {
+			if ( 'yes' === $rate['compound'] ) {
 				$compound_rate = round( $final_tax_rate * ( $rate['rate'] / 100 ) ) + $rate['rate'];
 			}
 

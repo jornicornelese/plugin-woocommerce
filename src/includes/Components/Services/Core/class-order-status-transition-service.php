@@ -21,8 +21,10 @@ class Order_Status_Transition_Service implements OrderStatusTransitionService {
 			$order->update_status( $woocommerceStatus );
 
 			$order->add_order_note( sprintf(
-				__( "Biller changed the order (%s) status to $woocommerceStatus.", 'biller-business-invoice' ),
-				$order->get_id()
+			/* translators: %s: order ID, WC status */
+				__( 'Biller changed the order (%1$s) status to %2$s.', 'biller-business-invoice' ),
+				$order->get_id(),
+				$woocommerceStatus
 			) );
 		}
 	}
@@ -32,6 +34,8 @@ class Order_Status_Transition_Service implements OrderStatusTransitionService {
 	}
 
 	/**
+	 * Should the status be changed
+	 *
 	 * @param Status $status
 	 * @param $order
 	 *
@@ -39,7 +43,7 @@ class Order_Status_Transition_Service implements OrderStatusTransitionService {
 	 */
 	private function shouldChangeStatus( Status $status, $order ) {
 		return in_array( (string) $status, Status_Mapper::$orderStatusMapper, true ) &&
-		       ! in_array( $order->get_status(),
-			       array_keys( Status_Mapper::$orderStatusMapper, (string)$status ), true );
+			   ! in_array( $order->get_status(),
+				   array_keys( Status_Mapper::$orderStatusMapper, (string) $status ), true );
 	}
 }

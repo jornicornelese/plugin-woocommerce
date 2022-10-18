@@ -38,8 +38,8 @@ class Notice_Service {
 		foreach ( $notifications as $notification ) {
 			$is_dismissible = $notification->isDismissible() ? 'is-dismissible' : '';
 			echo wp_kses(
-				'<div class="notice notice-' . esc_attr__($notification->getType()) . ' . ' . $is_dismissible . '"><p>' .
-			     esc_html__( $notification->getMessage(), 'biller-business-invoice' ) . '</p></div>',
+				'<div class="notice notice-' . esc_attr__( $notification->getType() ) . ' . ' . $is_dismissible . '"><p>' .
+				esc_html__( $notification->getMessage(), 'biller-business-invoice' ) . '</p></div>',
 				View::get_allowed_tags()
 			);
 		}
@@ -52,7 +52,12 @@ class Notice_Service {
 	 * @return Notice[]
 	 */
 	public function get_notifications() {
-		return Notice::fromBatch( get_option( self::OPTION_FIELD_NAME ) ?: [] );
+		$notifications = get_option( self::OPTION_FIELD_NAME );
+		if ( $notifications ) {
+			return Notice::fromBatch( get_option( self::OPTION_FIELD_NAME ) );
+		}
+
+		return [];
 	}
 
 	/**

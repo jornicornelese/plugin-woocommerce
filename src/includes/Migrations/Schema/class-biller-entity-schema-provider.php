@@ -11,7 +11,7 @@ class Biller_Entity_Schema_Provider {
 	 * @return string
 	 */
 	public static function get_schema( $table_name ) {
-		return "CREATE TABLE IF NOT EXISTS `" . $table_name . "` (
+		return 'CREATE TABLE IF NOT EXISTS `' . $table_name . '` (
                        `id` INT NOT NULL AUTO_INCREMENT,
                        `type` VARCHAR(191) NOT NULL,
                        `data` LONGTEXT NOT NULL,
@@ -30,6 +30,6 @@ class Biller_Entity_Schema_Provider {
                        INDEX `type_index_5` (`type`, `index_5`),
                        INDEX `type_index_6` (`type`, `index_6`),
                        INDEX `type_index_7` (`type`, `index_7`)
-                       )";
+                       )';
 	}
 }

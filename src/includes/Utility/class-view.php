@@ -9,6 +9,8 @@ class View {
 	const VIEW_FOLDER_PATH = '/resources/views';
 
 	/**
+	 * File path
+	 *
 	 * @var string
 	 */
 	private $file;

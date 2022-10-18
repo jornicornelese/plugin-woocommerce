@@ -28,10 +28,14 @@ use WC_Order_Refund;
 
 class Admin_Order_Action_Handlers {
 	/**
+	 * Order reference repository
+	 *
 	 * @var OrderReferenceRepository
 	 */
 	private $order_reference_repository;
 	/**
+	 * Notice service
+	 *
 	 * @var Notice_Service
 	 */
 	private $notice_service;
@@ -81,6 +85,8 @@ class Admin_Order_Action_Handlers {
 
 	public function refund_created( $refund_id ) {
 		/**
+		 * Refund
+		 *
 		 * @var WC_Order_Refund $refund
 		 */
 		$refund = wc_get_order( $refund_id );
@@ -168,6 +174,7 @@ class Admin_Order_Action_Handlers {
 				(string) $order->get_id()
 			);
 
+			/* translators: %s: order ID */
 			$message = sprintf( __( 'Order %s changes are not synchronized to the Biller.', 'biller-business-invoice' ), $order->get_id() );
 			$this->notice_service->push( new Notice( Notice_Service::INFO_TYPE, $message ) );
 			$order->add_order_note( $message );
@@ -187,7 +194,7 @@ class Admin_Order_Action_Handlers {
 
 		// If order is already attached to a Biller skip company name coping
 		$order_reference = $this->order_reference_repository->findByExternalUUID( (string) $order->get_id() );
-		if ( $order_reference !== null ) {
+		if ( null !== $order_reference ) {
 			return;
 		}
 
@@ -209,6 +216,8 @@ class Admin_Order_Action_Handlers {
 	 */
 	private function update_order_status( WC_Order $order ) {
 		/**
+		 * Order service
+		 *
 		 * @var OrderService $order_service
 		 */
 		$order_service = ServiceRegister::getService( OrderService::class );
@@ -240,8 +249,8 @@ class Admin_Order_Action_Handlers {
 	 */
 	private function is_address_or_customer_changed( WC_Order $order ) {
 		return array_key_exists( 'billing', $order->get_changes() ) ||
-		       array_key_exists( 'shipping', $order->get_changes() ) ||
-		       array_key_exists( 'customer_id', $order->get_changes() );
+			   array_key_exists( 'shipping', $order->get_changes() ) ||
+			   array_key_exists( 'customer_id', $order->get_changes() );
 	}
 
 	/**
@@ -310,6 +319,7 @@ class Admin_Order_Action_Handlers {
 		NotificationHub::pushError( $title, $description, (string) $order->get_id() );
 		$this->order_reference_repository->deleteBuExternalUUID( (string) $order->get_id() );
 
+		/* translators: %s: order ID */
 		$message = sprintf( __( 'Order %s changes will not be automatically synchronized to the Biller anymore due to unsupported action.', 'biller-business-invoice' ), $order->get_id() );
 		$this->notice_service->push( new Notice( Notice_Service::ERROR_TYPE, $message ) );
 		$order->add_order_note( $message );

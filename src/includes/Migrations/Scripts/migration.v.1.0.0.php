@@ -13,6 +13,8 @@ use Biller\Migrations\Abstract_Migration;
 class Migration_1_0_0 extends Abstract_Migration {
 
 	/**
+	 * Execute migration.
+	 *
 	 * @inheritDoc
 	 */
 	public function execute() {

@@ -2,7 +2,6 @@
 
 namespace Biller\Components\Services;
 
-
 use Biller\BusinessLogic\Integration\Refund\OrderRefundService;
 use Biller\BusinessLogic\Notifications\NotificationHub;
 use Biller\BusinessLogic\Notifications\NotificationText;
@@ -13,13 +12,15 @@ use Exception;
 class Order_Refund_Service implements OrderRefundService {
 
 	/**
+	 * Refund
+	 *
 	 * @throws InvalidTaxPercentage
 	 * @throws Exception
 	 */
 	public function refund( $externalOrderUUID, RefundCollection $billerRefunds = null ) {
 		$order = wc_get_order( $externalOrderUUID );
 
-		if ( $billerRefunds === null ) {
+		if ( null === $billerRefunds ) {
 			$this->refundAmount( $order->get_remaining_refund_amount(), $order->get_id() );
 		} else {
 			$this->refundAmount( $billerRefunds->getTotalRefunded()->getAmountInclTax()->getPriceInCurrencyUnits() - $order->get_total_refunded(),
@@ -28,6 +29,8 @@ class Order_Refund_Service implements OrderRefundService {
 	}
 
 	/**
+	 * Refund the amount
+	 *
 	 * @param float $amount
 	 * @param int $orderId
 	 *

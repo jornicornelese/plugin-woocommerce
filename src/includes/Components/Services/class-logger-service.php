@@ -21,11 +21,15 @@ class Logger_Service extends Singleton implements LoggerAdapter {
 	const CONTEXT_DEF = "\tContext[%s]: %s\n";
 
 	/**
+	 * Logger service instance
+	 *
 	 * @var Logger_Service
 	 */
 	protected static $instance;
 
 	/**
+	 * WC Logger
+	 *
 	 * @var WC_Logger
 	 */
 	private $wc_logger;
@@ -44,7 +48,11 @@ class Logger_Service extends Singleton implements LoggerAdapter {
 	 * @param LogData $data
 	 */
 	public function logMessage( LogData $data ) {
-		/** @var Configuration_Service $configuration */
+		/**
+		 * Configuration service
+		 *
+		 * @var Configuration_Service $configuration
+		 */
 		$configuration = ServiceRegister::getService( Configuration::CLASS_NAME );
 		$min_log_level = $configuration->getMinLogLevel();
 		$log_level     = $data->getLogLevel();
@@ -69,7 +77,7 @@ class Logger_Service extends Singleton implements LoggerAdapter {
 				$this->wc_logger->debug( $this->format_message( 'debug', $data ) );
 
 				break;
-			default :
+			default:
 				$this->wc_logger->warning( $this->format_message( 'warning', $data ) );
 				break;
 		}

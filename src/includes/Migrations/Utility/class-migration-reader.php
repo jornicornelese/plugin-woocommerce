@@ -38,6 +38,8 @@ class Migration_Reader {
 	 */
 	private $pointer = 0;
 	/**
+	 * WP Database
+	 *
 	 * @var wpdb
 	 */
 	private $db;

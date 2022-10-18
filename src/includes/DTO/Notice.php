@@ -5,22 +5,31 @@ namespace Biller\DTO;
 use Biller\Infrastructure\Data\DataTransferObject;
 
 class Notice extends DataTransferObject {
+
 	/**
+	 * Type
+	 *
 	 * @var string
 	 */
 	private $type;
 
 	/**
+	 * Message
+	 *
 	 * @var string
 	 */
 	private $message;
 
 	/**
+	 * Is dismissible
+	 *
 	 * @var bool
 	 */
 	private $is_dismissible;
 
 	/**
+	 * Notice constructor.
+	 *
 	 * @param string $type
 	 * @param string $message
 	 * @param bool $is_dismissible
@@ -33,6 +42,8 @@ class Notice extends DataTransferObject {
 
 
 	/**
+	 * Get type
+	 *
 	 * @return string
 	 */
 	public function getType() {
@@ -40,6 +51,8 @@ class Notice extends DataTransferObject {
 	}
 
 	/**
+	 * Set type
+	 *
 	 * @param string $type
 	 */
 	public function setType( $type ) {
@@ -47,6 +60,8 @@ class Notice extends DataTransferObject {
 	}
 
 	/**
+	 * Set message
+	 *
 	 * @return string
 	 */
 	public function getMessage() {
@@ -54,6 +69,8 @@ class Notice extends DataTransferObject {
 	}
 
 	/**
+	 * Set message
+	 *
 	 * @param string $message
 	 */
 	public function setMessage( $message ) {
@@ -61,6 +78,8 @@ class Notice extends DataTransferObject {
 	}
 
 	/**
+	 * Is dismissible
+	 *
 	 * @return bool
 	 */
 	public function isDismissible() {
@@ -68,6 +87,8 @@ class Notice extends DataTransferObject {
 	}
 
 	/**
+	 * Set is dismissible
+	 *
 	 * @param bool $is_dismissible
 	 */
 	public function setIsDismissible( $is_dismissible ) {

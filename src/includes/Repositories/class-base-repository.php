@@ -24,14 +24,20 @@ class Base_Repository implements RepositoryInterface {
 	const TABLE_NAME = 'biller_entity';
 
 	/**
+	 * WP Database
+	 *
 	 * @var wpdb
 	 */
 	protected $db;
 	/**
+	 * Table name
+	 *
 	 * @var string
 	 */
 	protected $table_name;
 	/**
+	 * Entity class
+	 *
 	 * @var string
 	 */
 	protected $entity_class;
@@ -46,6 +52,8 @@ class Base_Repository implements RepositoryInterface {
 	}
 
 	/**
+	 * Get class name
+	 *
 	 * @inheritDoc
 	 */
 	public static function getClassName() {
@@ -53,6 +61,8 @@ class Base_Repository implements RepositoryInterface {
 	}
 
 	/**
+	 * Set entity class
+	 *
 	 * @inheritDoc
 	 */
 	public function setEntityClass( $entityClass ) {
@@ -60,15 +70,25 @@ class Base_Repository implements RepositoryInterface {
 	}
 
 	/**
+	 * Select query
+	 *
 	 * @inheritDoc
 	 * @throws QueryFilterInvalidParamException
 	 */
 	public function select( QueryFilter $filter = null ) {
-		/** @var Entity $entity */
-		$entity = new $this->entity_class;
+		/**
+		 * Entity
+		 *
+		 * @var Entity $entity
+		 */
+		$entity = new $this->entity_class();
 		$type   = $entity->getConfig()->getType();
 
-		/** @noinspection SqlNoDataSourceInspection */
+		/**
+		 * SqlNoDataSourceInspection
+		 *
+		 * @noinspection SqlNoDataSourceInspection
+		 */
 		$query = "SELECT * FROM {$this->table_name} WHERE type = '$type'";
 		if ( $filter ) {
 			$query .= $this->apply_query_filter( $filter, IndexHelper::mapFieldsToIndexes( $entity ) );
@@ -80,6 +100,8 @@ class Base_Repository implements RepositoryInterface {
 	}
 
 	/**
+	 * Select one query
+	 *
 	 * @inheritDoc
 	 * @throws QueryFilterInvalidParamException
 	 */
@@ -95,6 +117,8 @@ class Base_Repository implements RepositoryInterface {
 	}
 
 	/**
+	 * Save entity
+	 *
 	 * @inheritDoc
 	 */
 	public function save( Entity $entity ) {
@@ -108,6 +132,8 @@ class Base_Repository implements RepositoryInterface {
 	}
 
 	/**
+	 * Update entity
+	 *
 	 * @inheritDoc
 	 */
 	public function update( Entity $entity ) {
@@ -118,6 +144,8 @@ class Base_Repository implements RepositoryInterface {
 	}
 
 	/**
+	 * Delete entity
+	 *
 	 * @inheritDoc
 	 */
 	public function delete( Entity $entity ) {
@@ -125,15 +153,29 @@ class Base_Repository implements RepositoryInterface {
 	}
 
 	/**
+	 * Delete query
+	 *
 	 * @inheritDoc
 	 */
 	public function deleteWhere( QueryFilter $filter ) {
-		/** @var Entity $entity */
+		/**
+		 * Entity
+		 *
+		 * @var Entity $entity
+		 */
 		$entity = new $this->entity_class();
 		$type   = $entity->getConfig()->getType();
 
-		/** @noinspection SqlDialectInspection */
-		/** @noinspection SqlNoDataSourceInspection */
+		/**
+		 * SqlDialectInspection
+		 *
+		 * @noinspection SqlDialectInspection
+		 */
+		/**
+		 * SqlNoDataSourceInspection
+		 *
+		 * @noinspection SqlNoDataSourceInspection
+		 */
 		$query = "DELETE FROM {$this->table_name} WHERE type = '$type' ";
 		if ( $filter ) {
 			$query .= $this->get_condition( $filter, IndexHelper::mapFieldsToIndexes( $entity ) );
@@ -143,16 +185,30 @@ class Base_Repository implements RepositoryInterface {
 	}
 
 	/**
+	 * Count
+	 *
 	 * @inheritDoc
 	 * @throws QueryFilterInvalidParamException
 	 */
 	public function count( QueryFilter $filter = null ) {
-		/** @var Entity $entity */
+		/**
+		 * Entity
+		 *
+		 * @var Entity $entity
+		 */
 		$entity = new $this->entity_class();
 		$type   = $entity->getConfig()->getType();
 
-		/** @noinspection SqlDialectInspection */
-		/** @noinspection SqlNoDataSourceInspection */
+		/**
+		 * SqlDialectInspection
+		 *
+		 * @noinspection SqlDialectInspection
+		 */
+		/**
+		 * SqlNoDataSourceInspection
+		 *
+		 * @noinspection SqlNoDataSourceInspection
+		 */
 		$query = "SELECT COUNT(*) as `total` FROM {$this->table_name} WHERE type = '$type' ";
 		if ( $filter ) {
 			$query .= $this->apply_query_filter( $filter, IndexHelper::mapFieldsToIndexes( $entity ) );
@@ -298,10 +354,18 @@ class Base_Repository implements RepositoryInterface {
 	 * @return Entity[] Array of transformed entities.
 	 */
 	protected function transform_to_entities( array $result ) {
-		/** @var Entity[] $entities */
+		/**
+		 * Entities
+		 *
+		 * @var Entity[] $entities
+		 */
 		$entities = array();
 		foreach ( $result as $item ) {
-			/** @var Entity $data */
+			/**
+			 * Entity data
+			 *
+			 * @var Entity $data
+			 */
 			$data   = json_decode( $item['data'], true );
 			$entity = isset( $data['class_name'] ) ? new $data['class_name']() : new $this->entity_class();
 			$entity->inflate( $data );
@@ -314,6 +378,8 @@ class Base_Repository implements RepositoryInterface {
 	}
 
 	/**
+	 * Get condition
+	 *
 	 * @param QueryFilter $filter
 	 * @param array $field_index_map
 	 *
