@@ -3,6 +3,7 @@
 namespace Biller\Components\Services;
 
 use Biller\DTO\Notice;
+use Biller\Utility\View;
 
 class Notice_Service {
 
