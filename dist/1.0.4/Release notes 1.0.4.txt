@@ -1,0 +1,3 @@
+Release notes:
+* Introduced filter biller_billing_address that allows developers to modify the address value
+* Made code compliant to WooCommerce coding standard
