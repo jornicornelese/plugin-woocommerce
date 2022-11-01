@@ -202,11 +202,21 @@ class Order_Request_Service {
 			$order->get_meta( 'biller_registration_number' ), $order->get_meta( 'biller_vat_number' ) ) );
 		$order_request_factory->setBuyerRepresentative( new Buyer( $order->get_billing_first_name(),
 			$order->get_billing_last_name(), $order->get_billing_email(), $order->get_billing_phone() ) );
+		/**
+		 * Filter biller_billing_address can be implemented in seller shop with purpose of compatibility
+		 *
+		 * @since 1.0.4 version
+		 */
 		$billingAddress = apply_filters( 'biller_billing_address', new Address( $order->get_billing_city(), $order->get_billing_postcode(),
 			Country::fromIsoCode( $order->get_billing_country() ), $order->get_billing_address_1(),
 			$order->get_billing_address_2(), $order->get_billing_state() ), $order );
 		$order_request_factory->setBillingAddress( $billingAddress );
 		if ( $this->haveShippingAddress( $order ) ) {
+			/**
+			 * Filter biller_billing_address can be implemented in seller shop with purpose of compatibility
+			 *
+			 * @since 1.0.4 version
+			 */
 			$shipping_address = apply_filters( 'biller_shipping_address', new Address( $order->get_shipping_city(),
 				$order->get_shipping_postcode(), Country::fromIsoCode( $order->get_shipping_country() ),
 				$order->get_shipping_address_1(), $order->get_shipping_address_2(), $order->get_shipping_state() ), $order );

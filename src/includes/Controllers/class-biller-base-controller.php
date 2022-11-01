@@ -174,7 +174,7 @@ class Biller_Base_Controller {
 		foreach ( $_REQUEST as $key => $value ) {
 			if ( false !== strpos( $key, 'amp;' ) ) {
 				$new_key = str_replace( 'amp;', '', $key );
-				$_REQUEST[$new_key] = $value;
+				$_REQUEST[$new_key] = sanitize_text_field($value);
 				unset($_REQUEST[$key]);
 			}
 		}
