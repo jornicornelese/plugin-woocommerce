@@ -1,0 +1,16 @@
+=== Biller | Biller business invoice ===
+
+= 2022-10-20 - version 1.0.4 =
+* Add filter applying for billing and shipping address
+
+= 2022-08-01 - version 1.0.3 =
+* Add compatibility with Sequential Order Numbers plugin
+
+= 2022-07-08 - version 1.0.2 =
+* Fix error upon order status change to complete
+
+= 2022-06-22 - version 1.0.1 =
+* Add support for additional countries and currencies
+
+= 2022-05-05 - version 1.0.0 =
+* Initial release
