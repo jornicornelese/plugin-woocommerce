@@ -37,7 +37,6 @@ class Biller_Payment_Redirection_Controller extends Biller_Base_Controller {
 
 
 	public function __construct() {
-
 		$this->order_service = ServiceRegister::getService( OrderService::class );
 	}
 
@@ -52,36 +51,37 @@ class Biller_Payment_Redirection_Controller extends Biller_Base_Controller {
 		$order_id     = $this->get_param( 'order_id' );
 		$order        = new WC_Order( $order_id );
 
-		try{
-			if ( $order_status === self::SUCCESS_STATUS  && $this->order_service->isPaymentAccepted( $order_id )) {
+		try {
+			if ( $order_status === self::SUCCESS_STATUS && $this->order_service->isPaymentAccepted( $order_id ) ) {
 				$order->update_status( 'processing', __( 'Accepted by Biller', 'biller-business-invoice' ) );
 				wp_redirect( $this->get_order_received_url( $order ) );
 
 				return;
 			}
 		} catch ( Exception $e ) {
-			Logger::logError('Fail to redirect after successful order creation. ' . $e->getMessage());
+			Logger::logError( 'Fail to redirect after successful order creation. ' . $e->getMessage() );
 		}
 
-		if($order_status === self::ERROR_STATUS) {
-			wc_add_notice( 'Biller payment transaction failed. Please choose another billing option or change the company data.', 'error' );
+		if ( $order_status === self::ERROR_STATUS ) {
+			wc_add_notice( __( 'Biller payment transaction failed. Please choose another billing option or change the company data.' ),
+				'error' );
 		}
 
 		wp_redirect( wc_get_checkout_url() );
 	}
 
-    /**
-     * Redirects to Biller payment page
-     *
-     * @return void
-     * @throws HttpCommunicationException
-     * @throws HttpRequestException
-     * @throws QueryFilterInvalidParamException
-     * @throws RequestNotSuccessfulException
-     * @throws CurrencyMismatchException
-     * @throws InvalidArgumentException
-     * @throws InvalidTaxPercentage
-     */
+	/**
+	 * Redirects to Biller payment page
+	 *
+	 * @return void
+	 * @throws HttpCommunicationException
+	 * @throws HttpRequestException
+	 * @throws QueryFilterInvalidParamException
+	 * @throws RequestNotSuccessfulException
+	 * @throws CurrencyMismatchException
+	 * @throws InvalidArgumentException
+	 * @throws InvalidTaxPercentage
+	 */
 	public function payment_redirect() {
 		$order_request_service = new Order_Request_Service();
 		$order_id              = $this->get_param( 'order_id' );
@@ -90,6 +90,7 @@ class Biller_Payment_Redirection_Controller extends Biller_Base_Controller {
 
 		if ( ! $order || ! wp_check_password( Shop_Helper::get_raw_token( $order_id ), $token ) ) {
 			wp_redirect( get_home_url() );
+
 			return;
 		}
 

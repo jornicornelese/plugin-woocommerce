@@ -316,3 +316,7 @@ msgstr ""
 #: resources/views/checkout/custom-payment-fields.php:8
 msgid "optional"
 msgstr ""
+
+#: includes/Controllers/class-biller-payment-redirection-controller.php:69
+msgid "Biller payment transaction failed. Please choose another billing option or change the company data."
+msgstr ""
