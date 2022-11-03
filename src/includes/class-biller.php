@@ -24,23 +24,30 @@ require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 class Biller {
 
-	const VERSION = '1.0.3';
+	const VERSION = '1.0.4';
 
 	const INTEGRATION_NAME = 'biller-business-invoice';
 	const BASE_API_URI = '/biller';
 	const BILLER_BUSINESS_INVOICE_ID = 'biller_business_invoice';
+	const BILLER_ICON_PATH = '/resources/images/biller_logo.svg';
 
 	/**
+	 * Biller instance
+	 *
 	 * @var Biller
 	 */
 	protected static $instance;
 
 	/**
+	 * Biller plugin file
+	 *
 	 * @var string
 	 */
 	private $biller_plugin_file;
 
 	/**
+	 * Database
+	 *
 	 * @var Database
 	 */
 	private $database;
@@ -52,6 +59,8 @@ class Biller {
 	private $is_initialized = false;
 
 	/**
+	 * Notice_Service
+	 *
 	 * @var Notice_Service
 	 */
 	private $notice_service;
@@ -75,7 +84,7 @@ class Biller {
 	 * @return Biller
 	 */
 	public static function init( $biller_plugin_file ) {
-		if ( self::$instance === null ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self( $biller_plugin_file );
 		}
 
@@ -97,20 +106,24 @@ class Biller {
 	 * Handle Webhooks from Biller
 	 */
 	public static function biller_webhook_handler() {
-		/** @var WebhookHandler $webhook_handler */
-		$webhook_handler = ServiceRegister::getService(WebhookHandler::class);
+		/**
+		 * Webhook handler
+		 *
+		 * @var WebhookHandler $webhook_handler
+		 */
+		$webhook_handler = ServiceRegister::getService( WebhookHandler::class );
 		$webhook_handler->handle( file_get_contents( 'php://input' ) );
 	}
 
 	/**
-	 * Returns url for the provided directory
+	 * Returns biller icon url
 	 *
 	 * @param $path
 	 *
 	 * @return string
 	 */
-	public static function get_plugin_url( $path ) {
-		return rtrim( plugins_url( "/{$path}/", __DIR__ ), '/' );
+	public static function get_biller_icon_url() {
+		return rtrim( plugins_url( self::BILLER_ICON_PATH, __DIR__ ), '/' );
 	}
 
 	/**
@@ -301,7 +314,10 @@ class Biller {
 			$this,
 			'allow_save_settings'
 		) );
-		add_action( 'woocommerce_api_biller_webhook', new Logging_Callable( array( $this, 'biller_webhook_handler' ) ) );
+		add_action( 'woocommerce_api_biller_webhook', new Logging_Callable( array(
+			$this,
+			'biller_webhook_handler'
+		) ) );
 		add_filter( 'query_vars', array( $this, 'biller_query_vars_filter' ) );
 		add_action( 'template_redirect', array( $this, 'biller_template_redirect' ) );
 		add_filter( 'woocommerce_payment_gateways', array( $this, 'add_biller_payment_gateway' ) );
@@ -321,6 +337,8 @@ class Biller {
 	}
 
 	/**
+	 * Change order success message
+	 *
 	 * @param $messages
 	 *
 	 * @return array
@@ -356,7 +374,11 @@ class Biller {
 	 */
 	public function biller_add_payment_link( $string, $email ) {
 		$placeholder = '{biller_payment_link}'; // The corresponding placeholder to be used
-		/** @var WC_Order $order */
+		/**
+		 * WC Order
+		 *
+		 * @var WC_Order $order
+		 */
 		$order = $email->object; // Get the instance of the WC_Order Object
 
 		// Generate a payment link for that order

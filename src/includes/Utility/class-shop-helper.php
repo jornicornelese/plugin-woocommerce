@@ -60,6 +60,11 @@ class Shop_Helper {
 	public static function is_plugin_active_for_current_site() {
 		return in_array(
 			self::get_plugin_name(),
+			/**
+			 * Check if plugin is active
+			 *
+			 * @since 1.0.0
+			 */
 			apply_filters( 'active_plugins', get_option( 'active_plugins' ) ),
 			true
 		);
@@ -71,7 +76,7 @@ class Shop_Helper {
 	 * @return string
 	 */
 	public static function get_plugin_name() {
-		return plugin_basename(dirname(dirname(__DIR__)) . '/biller-business-invoice.php');
+		return plugin_basename( dirname( dirname( __DIR__ ) ) . '/biller-business-invoice.php' );
 	}
 
 	/**
@@ -152,8 +157,11 @@ class Shop_Helper {
 	 */
 	public static function get_shop_name() {
 		$name = get_bloginfo( 'name' );
+		if ( $name ) {
+			return $name;
+		}
 
-		return $name ?: '';
+		return '';
 	}
 
 	/**
@@ -184,17 +192,19 @@ class Shop_Helper {
 	 * @return string
 	 */
 	public static function get_payment_link_url( $order_id ) {
-		return Shop_Helper::get_controller_url(
+		return self::get_controller_url(
 			'Payment_Redirection',
 			'payment_redirect',
 			[
 				'order_id' => $order_id,
-				'token'    => wp_hash_password( Shop_Helper::get_raw_token($order_id) )
+				'token'    => wp_hash_password( self::get_raw_token( $order_id ) )
 			]
 		);
 	}
 
 	/**
+	 * Get raw token
+	 *
 	 * @param int $order_id
 	 *
 	 * @return string

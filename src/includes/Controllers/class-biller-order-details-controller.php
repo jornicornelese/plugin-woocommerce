@@ -21,6 +21,8 @@ class Biller_Order_Details_Controller extends Biller_Base_Controller {
 	const BILLER_STATUS_UNKNOWN = 'unknown';
 
 	/**
+	 * Order service
+	 *
 	 * @var OrderService
 	 */
 	private $order_service;
@@ -57,7 +59,7 @@ class Biller_Order_Details_Controller extends Biller_Base_Controller {
 			);
 		}
 
-		echo View::file( '/admin/order/meta-post-box.php' )->render(
+		echo wp_kses(View::file( '/admin/order/meta-post-box.php' )->render(
 			[
 				'payment_status'               => $this->get_status_label( $status ),
 				'payment_link'                 => Shop_Helper::get_payment_link_url( $wp_post->ID ),
@@ -76,7 +78,7 @@ class Biller_Order_Details_Controller extends Biller_Base_Controller {
 				'display_capture_button'       => $status->isAccepted(),
 				'display_cancel_button'        => $status->isAccepted() || $status->isPending()
 			]
-		);
+		), View::get_allowed_tags());
 	}
 
 	/**
@@ -136,16 +138,16 @@ class Biller_Order_Details_Controller extends Biller_Base_Controller {
 	 */
 	private function should_link_be_displayed( Status $status, WC_Order $order ) {
 		return ! empty( $order->get_meta( 'biller_company_name' ) ) &&
-		       $this->is_valid_payment_link_status( $status ) &&
-		       $order->get_total() > 0 &&
-		       $order->has_billing_address() &&
-		       ! empty( $order->get_billing_first_name() ) &&
-		       ! empty( $order->get_billing_last_name() ) &&
-		       ! empty( $order->get_billing_email() ) &&
-		       ! empty( $order->get_billing_city() ) &&
-		       ! empty( $order->get_billing_postcode() ) &&
-		       ! empty( $order->get_billing_country() ) &&
-		       ! empty( $order->get_billing_address_1() );
+			   $this->is_valid_payment_link_status( $status ) &&
+			   $order->get_total() > 0 &&
+			   $order->has_billing_address() &&
+			   ! empty( $order->get_billing_first_name() ) &&
+			   ! empty( $order->get_billing_last_name() ) &&
+			   ! empty( $order->get_billing_email() ) &&
+			   ! empty( $order->get_billing_city() ) &&
+			   ! empty( $order->get_billing_postcode() ) &&
+			   ! empty( $order->get_billing_country() ) &&
+			   ! empty( $order->get_billing_address_1() );
 	}
 
 	/**
@@ -169,11 +171,11 @@ class Biller_Order_Details_Controller extends Biller_Base_Controller {
 	 */
 	private function is_valid_payment_link_status( Status $status ) {
 		return false !== strpos( (string) $status, 'unknown' ) ||
-		       in_array( (string) $status, [
-			       Status::BILLER_STATUS_PENDING,
-			       Status::BILLER_STATUS_CANCELLED,
-			       Status::BILLER_STATUS_FAILED,
-			       Status::BILLER_STATUS_REJECTED
-		       ], true );
+			   in_array( (string) $status, [
+				   Status::BILLER_STATUS_PENDING,
+				   Status::BILLER_STATUS_CANCELLED,
+				   Status::BILLER_STATUS_FAILED,
+				   Status::BILLER_STATUS_REJECTED
+			   ], true );
 	}
 }

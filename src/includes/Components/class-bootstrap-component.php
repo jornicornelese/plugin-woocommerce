@@ -134,6 +134,8 @@ class Bootstrap_Component extends BootstrapComponent {
 	}
 
 	/**
+	 * Repository class exception
+	 *
 	 * @throws RepositoryClassException
 	 */
 	protected static function initRepositories() {

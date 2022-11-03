@@ -15,20 +15,22 @@ use WP_Error;
 class Refund_Amount_Service implements RefundAmountRequestService {
 
 	/**
+	 * Refund error
+	 *
 	 * @var WP_Error|null
 	 */
 	private $refund_error;
 
 	/**
-	 * @inheritDoc
-	 *
 	 * Method will be automatically called by the core library during the amount refund handling when necessary.
 	 * Just record the refund error mesage and use it in the process_refund method
+	 *
 	 * @see process_refund
 	 */
 	public function reject( RefundAmountRequest $request, Exception $reason ) {
 		$this->refund_error = new \WP_Error(
 			'biller_refund_rejected',
+			/* translators: %s message */
 			sprintf( __( 'Order refund rejected with error: %s', 'biller-business-invoice' ), $reason->getMessage() )
 		);
 
@@ -50,6 +52,7 @@ class Refund_Amount_Service implements RefundAmountRequestService {
 		if ( ! $order ) {
 			return new WP_Error(
 				'biller_refund_invalid',
+				/* translators: %s order ID */
 				sprintf( __( 'Order refund could not be processed, unknown order id: %s', 'biller-business-invoice' ), $order_id )
 			);
 		}
@@ -74,6 +77,8 @@ class Refund_Amount_Service implements RefundAmountRequestService {
 	}
 
 	/**
+	 * Get RefundAmountHandlerService
+	 *
 	 * @return RefundAmountHandlerService
 	 */
 	protected function getRefundAmountHandlerService() {

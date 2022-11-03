@@ -12,10 +12,15 @@ class Biller_Notifications_Controller extends Biller_Base_Controller {
 	const LIMIT = 5;
 
 	/**
+	 * Notification controller
+	 *
 	 * @var NotificationController
 	 */
 	private $notification_controller;
+
 	/**
+	 * Translator
+	 *
 	 * @var Translator
 	 */
 	private $translator;
@@ -33,11 +38,13 @@ class Biller_Notifications_Controller extends Biller_Base_Controller {
 		$result        = [];
 
 		/**
+		 * Notification
+		 *
 		 * @var Notification $notification
 		 */
 		foreach ( $notifications->getNotifications() as $notification ) {
 			$orderNumber = wc_get_order( $notification->getOrderNumber() )->get_order_number();
-			$date        = date( 'M d, Y, h:i A', $notification->getTimestamp() );
+			$date        = gmdate( 'M d, Y, h:i A', $notification->getTimestamp() );
 			$desc        = $notification->getDescription();
 			$message     = $notification->getMessage();
 

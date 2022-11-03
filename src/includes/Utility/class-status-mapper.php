@@ -2,8 +2,8 @@
 
 namespace Biller\Utility;
 
-class Status_Mapper
-{
+class Status_Mapper {
+
 	const WOOCOMMERCE_PROCESSING = 'processing';
 	const WOOCOMMERCE_ON_HOLD = 'on-hold';
 	const WOOCOMMERCE_COMPLETED = 'completed';
@@ -20,6 +20,8 @@ class Status_Mapper
 	const BILLER_FAILED = 'failed';
 
 	/**
+	 * Order status mapper
+	 *
 	 * @var array
 	 */
 	public static $orderStatusMapper = [
