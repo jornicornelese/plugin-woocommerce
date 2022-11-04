@@ -63,7 +63,8 @@ class Biller_Payment_Redirection_Controller extends Biller_Base_Controller {
 		}
 
 		if ( $order_status === self::ERROR_STATUS ) {
-			wc_add_notice( __( 'Biller payment transaction failed. Please choose another billing option or change the company data.' ),
+			wc_add_notice( __( 'Biller payment transaction failed. Please choose another payment method.',
+				'biller-business-invoice' ),
 				'error' );
 		}
 

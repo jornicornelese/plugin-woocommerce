@@ -80,6 +80,10 @@ msgstr "Terugbetaling kan niet worden verwerkt door een onbekend order ID"
 msgid "Accepted by Biller"
 msgstr "Factuur betaling van Biller in afwachting "
 
+#: includes/Controllers/class-biller-payment-redirection-controller.php:66
+msgid "Biller payment transaction failed. Please choose another payment method."
+msgstr "De betaling via Biller is mislukt. Kies een andere betaalmethode alstublieft."
+
 #: includes/Gateways/class-biller-business-invoice.php:360
 msgid "Invalid field: "
 msgstr "Incorrect veld"
